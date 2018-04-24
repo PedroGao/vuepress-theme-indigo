@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pedro Blog | Web 学习（1）——标准库 http 实现 server</title>
+    <meta name="description" content="Just a blog for a unknown man">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.2124b703.css" as="style"><link rel="preload" href="/assets/js/app.2c76701a.js" as="script"><link rel="preload" href="/assets/js/4.379f4350.js" as="script"><link rel="prefetch" href="/assets/js/7.69c868d8.js"><link rel="prefetch" href="/assets/js/1.5f21b350.js"><link rel="prefetch" href="/assets/js/2.ad147154.js"><link rel="prefetch" href="/assets/js/3.dec539e8.js"><link rel="prefetch" href="/assets/js/5.39f5f0d6.js"><link rel="prefetch" href="/assets/js/6.1e5d73bd.js"><link rel="prefetch" href="/assets/js/8.4936efcb.js"><link rel="prefetch" href="/assets/js/9.9e9978a4.js"><link rel="prefetch" href="/assets/js/10.f3f4ca22.js"><link rel="prefetch" href="/assets/js/11.58ce6f32.js"><link rel="prefetch" href="/assets/js/12.6c7981c3.js"><link rel="prefetch" href="/assets/js/13.593672d8.js"><link rel="prefetch" href="/assets/js/14.e1db0581.js"><link rel="prefetch" href="/assets/js/15.4bc5cf62.js"><link rel="prefetch" href="/assets/js/16.de4f6602.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2124b703.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      Pedro Blog
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><a href="/essay/" class="nav-link">随笔</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Source
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><a href="/essay/" class="nav-link">随笔</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Source
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>博客</span><!----></p><ul class="sidebar-group-items"><li><a href="/blog/" class="sidebar-link">谈谈瓶颈</a></li><li><a href="/blog/Go-1.html" class="sidebar-link">Go 语言，Vue，Elasticsearch 打造个人博客</a></li><li><a href="/blog/Go-2.html" class="sidebar-link">Go 语言学习（1）——标准库 fmt</a></li><li><a href="/blog/Search-1.html" class="sidebar-link">自制信息检索网站（一）——爬取掘金数据</a></li><li><a href="/blog/Search-2.html" class="sidebar-link">自制信息检索网站（三）——Go 语言标准库实现后端</a></li><li><a href="/blog/Search-3.html" class="sidebar-link">自制信息检索网站（二）——分析掘金数据</a></li><li><a href="/blog/Spring-1.html" class="sidebar-link">SpringBoot 学习（一）起手式与 RestController</a></li><li><a href="/blog/Spring-2.html" class="sidebar-link">SpringBoot 学习（三）Spring-data-jpa</a></li><li><a href="/blog/Spring-3.html" class="sidebar-link">SpringBoot 学习（二）——过滤器 filter,拦截器 intercepter,切面 aspect</a></li><li><a href="/blog/Web-1.html" class="active sidebar-link">Web 学习（1）——标准库 http 实现 server</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/Web-1.html#前言" class="sidebar-link">前言</a></li></ul></li><li><a href="/blog/Web-2.html" class="sidebar-link">Web 学习（2）——实现中间件(middleware)</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="web-学习（1）——标准库-http-实现-server"><a href="#web-学习（1）——标准库-http-实现-server" aria-hidden="true" class="header-anchor">#</a> Web 学习（1）——标准库 http 实现 server</h1><h2 id="前言"><a href="#前言" aria-hidden="true" class="header-anchor">#</a> 前言</h2><p>最近放假在家好好学习了一下 Go 语言，Go 作为 Google 官推的 Server 语言，因为天生的并发性和完备的标准库让 Go 语言在服务端如鱼得水。笔者在简单的学习了之后，真的是惊讶连连，好了进入正题。</p><p>首先，我们必须实现一个 Go Web 版的 Hello World。</p><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;net/http&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	http<span class="token punctuation">.</span><span class="token function">HandleFunc</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span> <span class="token keyword">func</span><span class="token punctuation">(</span>w http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		fmt<span class="token punctuation">.</span><span class="token function">Fprintf</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> <span class="token string">&quot;%s\n&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Hello World&quot;</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	err <span class="token operator">:=</span> http<span class="token punctuation">.</span><span class="token function">ListenAndServe</span><span class="token punctuation">(</span><span class="token string">&quot;:8000&quot;</span><span class="token punctuation">,</span> <span class="token boolean">nil</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>我们可以看到 Go 语言实现一个 Web HelloWorld 的简洁程度甚至直接媲美 Node.js，不需要任何容器便可以实现一个高并发的简单服务器。下面我们来分析一下这个代码：</p><p>首先，我们导入了 fmt,http 包，log 包其实对于 HelloWorld 来说并没有导入的必要，但是日志输出这个良好习惯还是得遵从。在 main()函数的第一行，我们通过 http.HandleFunc 定义了路由为&quot;/&quot;的响应函数，这个响应函数，接受传来的 Request，并对 Response 做一定的处理即写入 HelloWorld 然后直接返回给浏览器。然后便可以直接调用 http.ListenAndServe 来监听本地的 8000 端口，便可以直接在浏览器上看到 HelloWorld。</p><p>好，上面的流程其实很简单，有一定 Web 编程的人便都能明白，接下来我们便从 Go 的源码中看一看，这段代码究竟是如何实现的。</p><pre class="language-go"><code><span class="token comment">// HandleFunc registers the handler function for the given pattern</span>
+<span class="token comment">// in the DefaultServeMux.</span>
+<span class="token comment">// The documentation for ServeMux explains how patterns are matched.</span>
+<span class="token keyword">func</span> <span class="token function">HandleFunc</span><span class="token punctuation">(</span>pattern <span class="token builtin">string</span><span class="token punctuation">,</span> handler <span class="token keyword">func</span><span class="token punctuation">(</span>ResponseWriter<span class="token punctuation">,</span> <span class="token operator">*</span>Request<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	DefaultServeMux<span class="token punctuation">.</span><span class="token function">HandleFunc</span><span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> handler<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p>上面这段便是 Go 源码中对 HandleFunc 函数的实现，我们可以看到这个函数直接将所有参数全部传递给了 DefaultServeMux.HandleFunc 来调用。</p><pre class="language-go"><code><span class="token comment">// DefaultServeMux is the default ServeMux used by Serve.</span>
+<span class="token keyword">var</span> DefaultServeMux <span class="token operator">=</span> <span class="token operator">&amp;</span>defaultServeMux
+
+<span class="token keyword">var</span> defaultServeMux ServeMux
+</code></pre><p>DefaultServeMux 是 http 包中的全局变量，它的原型是 ServeMux 这个结构体，我们再往上翻看这个结构体的 HandleFunc 方法。</p><pre class="language-go"><code><span class="token comment">// HandleFunc registers the handler function for the given pattern.</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>mux <span class="token operator">*</span>ServeMux<span class="token punctuation">)</span> <span class="token function">HandleFunc</span><span class="token punctuation">(</span>pattern <span class="token builtin">string</span><span class="token punctuation">,</span> handler <span class="token keyword">func</span><span class="token punctuation">(</span>ResponseWriter<span class="token punctuation">,</span> <span class="token operator">*</span>Request<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	mux<span class="token punctuation">.</span><span class="token function">Handle</span><span class="token punctuation">(</span>pattern<span class="token punctuation">,</span> <span class="token function">HandlerFunc</span><span class="token punctuation">(</span>handler<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p>我们可以看到，似乎没完没了，HandleFunc 也是直接调用这个结构体的另一个方法 Handle，另外 HandlerFunc(handler)中的 HandlerFunc 也只是一个 type 的定义。</p><pre class="language-go"><code><span class="token keyword">type</span> HandlerFunc <span class="token keyword">func</span><span class="token punctuation">(</span>ResponseWriter<span class="token punctuation">,</span> <span class="token operator">*</span>Request<span class="token punctuation">)</span>
+</code></pre><p>这个函数本身并没有实现什么，需要我们自己去实现它的内容。也就是我们上面所提到的响应函数。</p><pre class="language-go"><code><span class="token comment">// Handle registers the handler for the given pattern.</span>
+<span class="token comment">// If a handler already exists for pattern, Handle panics.</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>mux <span class="token operator">*</span>ServeMux<span class="token punctuation">)</span> <span class="token function">Handle</span><span class="token punctuation">(</span>pattern <span class="token builtin">string</span><span class="token punctuation">,</span> handler Handler<span class="token punctuation">)</span>
+</code></pre><p>终于我们找到了源头，当然这个方法的源代码还比较长，这里就不贴出全部，Handle 这个方法接受两个参数，pattern 这个 string 类型的参数表示路由，第二个参数 handle 它其实是 Handler 接口。</p><pre class="language-go"><code><span class="token keyword">type</span> Handler <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">ServeHTTP</span><span class="token punctuation">(</span>ResponseWriter<span class="token punctuation">,</span> <span class="token operator">*</span>Request<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p>可以看到 Handler 这个接口中只定义了 ServeHTTP 这一个方法，换句话说，我们也可以直接实现 ServeHTTP 这个方法来实现 Handler 这个接口，然后我们便可以传给 ServeMux 来自定义我们的 HelloWorld.</p><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;net/http&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">type</span> CustomHandler <span class="token keyword">struct</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token operator">*</span>CustomHandler<span class="token punctuation">)</span> <span class="token function">ServeHTTP</span><span class="token punctuation">(</span>w http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Fprintf</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> <span class="token string">&quot;%s\n&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Hello World&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	mux <span class="token operator">:=</span> http<span class="token punctuation">.</span><span class="token function">NewServeMux</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	mux<span class="token punctuation">.</span><span class="token function">Handle</span><span class="token punctuation">(</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>CustomHandler<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+	err <span class="token operator">:=</span> http<span class="token punctuation">.</span><span class="token function">ListenAndServe</span><span class="token punctuation">(</span><span class="token string">&quot;:8000&quot;</span><span class="token punctuation">,</span> mux<span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>上面的代码可以看到，我们定义了一个 CustomHandler,然后实现了 ServeHTTP 这个方法从而实现了 Handler 这个接口，在 main 方法中，我们通过 NewServeMux 创建了一个自己的 mux 而不去使用 http 内的默认 ServerMux。然后调用 ListenAndServe 方法，并将自己的 mux 传入，程序便会实现自定义的 HelloWorld 了。接下来我们来看一下 ListenAndServe 这个方法：</p><pre class="language-go"><code><span class="token comment">// ListenAndServe always returns a non-nil error.</span>
+<span class="token keyword">func</span> <span class="token function">ListenAndServe</span><span class="token punctuation">(</span>addr <span class="token builtin">string</span><span class="token punctuation">,</span> handler Handler<span class="token punctuation">)</span> <span class="token builtin">error</span> <span class="token punctuation">{</span>
+	server <span class="token operator">:=</span> <span class="token operator">&amp;</span>Server<span class="token punctuation">{</span>Addr<span class="token punctuation">:</span> addr<span class="token punctuation">,</span> Handler<span class="token punctuation">:</span> handler<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> server<span class="token punctuation">.</span><span class="token function">ListenAndServe</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p>源码中可以看到该方法会将传入进来的 addr 参数和 handler 送给 Server 这个结构体，从而新建一个 server 然后调用这个 server 的 ListenAndServe 方法，对于 Server 这个结构它已经是 Go 语言对于这个方面非常底层的实现了，它非常强大，而且实现了很多的方法，这里不过多阐述，主要是实力不够（笑）。好，回到正题，既然如此，我们便可以自己创建 Server 这个实例，来自定义我们的 HelloWorld 的第二版本。</p><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;fmt&quot;</span>
+	<span class="token string">&quot;net/http&quot;</span>
+	<span class="token string">&quot;log&quot;</span>
+	<span class="token string">&quot;time&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">type</span> CustomHandler <span class="token keyword">struct</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> mux <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token keyword">func</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">Hello</span><span class="token punctuation">(</span>w http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Fprintf</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> <span class="token string">&quot;%s\n&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Hello World&quot;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span><span class="token operator">*</span>CustomHandler<span class="token punctuation">)</span> <span class="token function">ServeHTTP</span><span class="token punctuation">(</span>w http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> handler<span class="token punctuation">,</span> ok <span class="token operator">:=</span> mux<span class="token punctuation">[</span>r<span class="token punctuation">.</span>URL<span class="token punctuation">.</span><span class="token function">String</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span> ok <span class="token punctuation">{</span>
+		<span class="token function">handler</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> r<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	server <span class="token operator">:=</span> http<span class="token punctuation">.</span>Server<span class="token punctuation">{</span>
+		Addr<span class="token punctuation">:</span><span class="token string">&quot;:8000&quot;</span><span class="token punctuation">,</span>
+		Handler<span class="token punctuation">:</span><span class="token operator">&amp;</span>CustomHandler<span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+		ReadHeaderTimeout<span class="token punctuation">:</span><span class="token number">5</span> <span class="token operator">*</span> time<span class="token punctuation">.</span>Second<span class="token punctuation">,</span>
+	<span class="token punctuation">}</span>
+	mux<span class="token punctuation">[</span><span class="token string">&quot;/&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> Hello
+	err <span class="token operator">:=</span> server<span class="token punctuation">.</span><span class="token function">ListenAndServe</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		log<span class="token punctuation">.</span><span class="token function">Fatal</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>上面这段代码便是自创 server 的实现了，这里挑选几条新的代码说明一下，我们定义了一个 mux 的全局变量，它来装配我们的路由与相应函数的映射，相当于上面的 mux.Handle(&quot;/&quot;, .....)，这里比较简陋的直接用 Map 来实现，接下来我们定义了 Hello 这个响应函数，我们也重写了 ServeHTTP 这个方法，它会判断 request 的 url 路径与我们 mux 里面的路径是否匹配，如果匹配在从 mux 中取出相应的响应函数并将 w http.ResponseWriter, r *http.Request 这两个参数传递给这个相应函数。</p><p>在 main 函数里，我们创建了自己的 server，通过端口号，Handler 及 timeout 时间来定义它，然后调用它的 ListenAndServe 方法，便可以实现与前面两个相同的 HelloWorld 功能。好了，今天写到这里，太晚了（笑）。</p></div><div class="content edit-link"><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true/edit/master/docs/blog/Web-1.md" target="_blank" rel="noopener noreferrer">Edit this page</a><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/blog/Spring-3.html" class="prev">
+          SpringBoot 学习（二）——过滤器 filter,拦截器 intercepter,切面 aspect
+        </a></span><span class="next"><a href="/blog/Web-2.html">
+          Web 学习（2）——实现中间件(middleware)
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/4.379f4350.js" defer></script><script src="/assets/js/app.2c76701a.js" defer></script>
+  </body>
+</html>

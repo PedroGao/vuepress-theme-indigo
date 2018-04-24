@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pedro Blog | Web 学习（2）——实现中间件(middleware)</title>
+    <meta name="description" content="Just a blog for a unknown man">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.2124b703.css" as="style"><link rel="preload" href="/assets/js/app.2c76701a.js" as="script"><link rel="preload" href="/assets/js/3.dec539e8.js" as="script"><link rel="prefetch" href="/assets/js/7.69c868d8.js"><link rel="prefetch" href="/assets/js/1.5f21b350.js"><link rel="prefetch" href="/assets/js/2.ad147154.js"><link rel="prefetch" href="/assets/js/4.379f4350.js"><link rel="prefetch" href="/assets/js/5.39f5f0d6.js"><link rel="prefetch" href="/assets/js/6.1e5d73bd.js"><link rel="prefetch" href="/assets/js/8.4936efcb.js"><link rel="prefetch" href="/assets/js/9.9e9978a4.js"><link rel="prefetch" href="/assets/js/10.f3f4ca22.js"><link rel="prefetch" href="/assets/js/11.58ce6f32.js"><link rel="prefetch" href="/assets/js/12.6c7981c3.js"><link rel="prefetch" href="/assets/js/13.593672d8.js"><link rel="prefetch" href="/assets/js/14.e1db0581.js"><link rel="prefetch" href="/assets/js/15.4bc5cf62.js"><link rel="prefetch" href="/assets/js/16.de4f6602.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2124b703.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      Pedro Blog
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><a href="/essay/" class="nav-link">随笔</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Source
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><a href="/essay/" class="nav-link">随笔</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Source
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>博客</span><!----></p><ul class="sidebar-group-items"><li><a href="/blog/" class="sidebar-link">谈谈瓶颈</a></li><li><a href="/blog/Go-1.html" class="sidebar-link">Go 语言，Vue，Elasticsearch 打造个人博客</a></li><li><a href="/blog/Go-2.html" class="sidebar-link">Go 语言学习（1）——标准库 fmt</a></li><li><a href="/blog/Search-1.html" class="sidebar-link">自制信息检索网站（一）——爬取掘金数据</a></li><li><a href="/blog/Search-2.html" class="sidebar-link">自制信息检索网站（三）——Go 语言标准库实现后端</a></li><li><a href="/blog/Search-3.html" class="sidebar-link">自制信息检索网站（二）——分析掘金数据</a></li><li><a href="/blog/Spring-1.html" class="sidebar-link">SpringBoot 学习（一）起手式与 RestController</a></li><li><a href="/blog/Spring-2.html" class="sidebar-link">SpringBoot 学习（三）Spring-data-jpa</a></li><li><a href="/blog/Spring-3.html" class="sidebar-link">SpringBoot 学习（二）——过滤器 filter,拦截器 intercepter,切面 aspect</a></li><li><a href="/blog/Web-1.html" class="sidebar-link">Web 学习（1）——标准库 http 实现 server</a></li><li><a href="/blog/Web-2.html" class="active sidebar-link">Web 学习（2）——实现中间件(middleware)</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/Web-2.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/blog/Web-2.html#第一种-以类型的形式实现" class="sidebar-link">第一种,以类型的形式实现</a></li><li class="sidebar-sub-header"><a href="/blog/Web-2.html#第二种-以函数的形式实现" class="sidebar-link">第二种,以函数的形式实现</a></li></ul></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="web-学习（2）——实现中间件-middleware"><a href="#web-学习（2）——实现中间件-middleware" aria-hidden="true" class="header-anchor">#</a> Web 学习（2）——实现中间件(middleware)</h1><h2 id="前言"><a href="#前言" aria-hidden="true" class="header-anchor">#</a> 前言</h2><p>昨天我们探讨了 Go 语言使用标准库实现简单的 web 版的 HelloWorld，大致了解了 Go 实现 server 应用的流程，今天我们来探讨一下用 Go 语言实现 http 的 Middleware。</p><p>我们知道，绝大部分 web 应用会将逻辑与功能的实现写在 middleware 里面更整个结构更加分明，middleware 大致在 web 应用里面大致分为两种，即处理 response 和处理 request（个人拙见，如有错误请以指正），接下来我将以处理 request 请求的形式来实现两种 middleware 的写法。</p><h2 id="第一种-以类型的形式实现"><a href="#第一种-以类型的形式实现" aria-hidden="true" class="header-anchor">#</a> 第一种,以类型的形式实现</h2><p>上篇博客中，我们探讨过 Go 语言实现 Web 最核心的部分：</p><pre class="language-go"><code>http<span class="token punctuation">.</span><span class="token function">ListenAndServe</span><span class="token punctuation">(</span><span class="token string">&quot;:8000&quot;</span><span class="token punctuation">,</span> handler<span class="token punctuation">)</span>
+</code></pre><p>http 包里面的 ListenAndServe 函数接受两个参数，即监听地址和处理接口 handler，handler 是一个接口，我们需要实现这个接口中的唯一方法 ServeHTTP 便可以实现上述的函数，因此我们处理的整个逻辑和流程都会在这个 handler 里面，下面我们先来看一个最简单的 handler 实现。</p><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;net/http&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">func</span> <span class="token function">myHandler</span><span class="token punctuation">(</span>w http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	w<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span><span class="token string">&quot;Hello World&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	http<span class="token punctuation">.</span><span class="token function">ListenAndServe</span><span class="token punctuation">(</span><span class="token string">&quot;:8000&quot;</span><span class="token punctuation">,</span> http<span class="token punctuation">.</span><span class="token function">HandlerFunc</span><span class="token punctuation">(</span>myHandler<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p>上面的代码中我们定义一个 myHandler，它接受 http.ResponseWriter,*http.Request 两个参数然后再向 ResponseWriter 中写入 Hello World,在 main 函数中，我们直接使用了 ListenAndServe 方法监听本地的 8000 端口，注意由于 Go 语言的强类型性，ListenAndServe 的第二个参数类型是 Handler，因此我们想要将 myHandler 传递给 ListenAndServe 就必须实现 ServeHTTP 这个方法。但其实 Go 源码里面已经帮我们实现了这个方法。</p><pre class="language-go"><code><span class="token comment">// Handler that calls f.</span>
+<span class="token keyword">type</span> HandlerFunc <span class="token keyword">func</span><span class="token punctuation">(</span>ResponseWriter<span class="token punctuation">,</span> <span class="token operator">*</span>Request<span class="token punctuation">)</span>
+
+<span class="token comment">// ServeHTTP calls f(w, r).</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>f HandlerFunc<span class="token punctuation">)</span> <span class="token function">ServeHTTP</span><span class="token punctuation">(</span>w ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">f</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> r<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p>可以看到，Go 语言将 func(ResponseWriter, *Request)这种类型的函数直接定义了类型 HandlerFunc，而且还实现了 ServeHTTP 这个方法，但是这个方法本身并没有实现任何逻辑，需要我们自己来实现。因此我们实现了 myHandler 这个方法，它将输出一个最简单的 HelloWorld 响应。随后我们可以用 curl 来测试一下：</p><pre class="language-bash"><code>$ <span class="token function">curl</span> localhost:8000
+Hello World
+</code></pre><p>可以看到，我们通过 curl 请求本地的 8000 端口，返回我们一个 HelloWorld。这便是一个最简单的 Handler 实现了。但是我们的目标是实现中间件，有了上述的所采用的的方法我们就可以大致明白，myHandler 应该作为最后的调用，在它之前才是中间件应该作用的地方，那么我们有了一个大致的方向，我们可以实现一个逻辑用来包含这个 myHandler，但它本身也必须实现 Handler 这个接口，因为我们要把它传递给 ListenAndServe 这个方法。好，我们先大致阐述一下这个中间件的作用，它会拦截一切请求除了这个请求的 host 是我们想要的 host，当然这个 host 有我们定义。</p><pre class="language-go"><code><span class="token keyword">type</span> SingleHost <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	handler     http<span class="token punctuation">.</span>Handler
+	allowedHost <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+</code></pre><p>于是我们定义了一个 SingleHost 的结构体，它里面有两个成员一个是 Handler，它将是我们上述的 myHandler，另一个是我们允许来请求 Server 的用户，这个用户他有唯一的 Host，只有当他的 Host 满足我们的要求是才让他请求成功，否则一律返回 403。</p><p>因为我们需要将这个 SingleHost 实例化并传递给 ListenAndServe 这个方法，因此它必须实现 ServeHTTP 这个方法，所以在 ServeHTTP 里面可以直接定义我们用来实现中间件的逻辑。即除非来请求的用户的 Host 是 allowedHost 否则一律返回 403。</p><pre class="language-go"><code><span class="token keyword">func</span> <span class="token punctuation">(</span>this <span class="token operator">*</span>SingleHost<span class="token punctuation">)</span> <span class="token function">ServeHTTP</span><span class="token punctuation">(</span>w http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>Host <span class="token operator">==</span> this<span class="token punctuation">.</span>allowedHost<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		this<span class="token punctuation">.</span>handler<span class="token punctuation">.</span><span class="token function">ServeHTTP</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> r<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		w<span class="token punctuation">.</span><span class="token function">WriteHeader</span><span class="token punctuation">(</span><span class="token number">403</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>好，可以清楚的看到只有 Request 的 Host==allowedHost 的时候，我们才调用 handler 的 ServeHTTP 方法，否则返回 403.下面是完整代码：</p><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">&quot;net/http&quot;</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">type</span> SingleHost <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+	handler     http<span class="token punctuation">.</span>Handler
+	allowedHost <span class="token builtin">string</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>this <span class="token operator">*</span>SingleHost<span class="token punctuation">)</span> <span class="token function">ServeHTTP</span><span class="token punctuation">(</span>w http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>r<span class="token punctuation">.</span>Host <span class="token operator">==</span> this<span class="token punctuation">.</span>allowedHost<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		this<span class="token punctuation">.</span>handler<span class="token punctuation">.</span><span class="token function">ServeHTTP</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> r<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+		w<span class="token punctuation">.</span><span class="token function">WriteHeader</span><span class="token punctuation">(</span><span class="token number">403</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">myHandler</span><span class="token punctuation">(</span>w http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	w<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span><span class="token string">&quot;Hello World&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	single <span class="token operator">:=</span> <span class="token operator">&amp;</span>SingleHost<span class="token punctuation">{</span>
+		handler<span class="token punctuation">:</span>http<span class="token punctuation">.</span><span class="token function">HandlerFunc</span><span class="token punctuation">(</span>myHandler<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		allowedHost<span class="token punctuation">:</span><span class="token string">&quot;refuse.com&quot;</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span>
+	http<span class="token punctuation">.</span><span class="token function">ListenAndServe</span><span class="token punctuation">(</span><span class="token string">&quot;:8000&quot;</span><span class="token punctuation">,</span> single<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p>然后我们用 curl 来请求本地的 8000 端口，</p><pre class="language-bash"><code>$ <span class="token function">curl</span> --head localhost:8000
+HTTP/1.1 403 Forbidden
+Date: Sun, 21 Jan 2018 08:32:47 GMT
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>utf-8
+</code></pre><p>可以看到我们在中间件中实现了只允许 host 为 refuse.com 来访问的逻辑实现了，由于 curl 的 Host 是 localhost 所以我们的服务器直接返回了它一个 403。接下来我们改变一下 allowedHost</p><pre class="language-bash"><code>allowedHost:<span class="token string">&quot;localhost:8000&quot;</span>,
+</code></pre><p>我们将 allowedHost 变成为 localhost:8000，然后用 curl 测试</p><pre class="language-bash"><code>$ <span class="token function">curl</span> localhost:8000
+Hello World
+</code></pre><p>可以看到 curl 通过了中间件的并直接获得了 myHandler 返回的 HelloWorld。</p><h2 id="第二种-以函数的形式实现"><a href="#第二种-以函数的形式实现" aria-hidden="true" class="header-anchor">#</a> 第二种,以函数的形式实现</h2><p>好，在上面我们实现了以类型为基础的中间件，可能对 Node.js 较熟悉的人都习惯以函数的形式实现中间件。首先，因为我们是以函数来实现中间件的因此这个函数返回的便是 Handler,它会接受两个参数，一个是我们定义的 myHandler，一个是 allowedHost。</p><pre class="language-go"><code><span class="token keyword">func</span> <span class="token function">SingleHost</span><span class="token punctuation">(</span>handler http<span class="token punctuation">.</span>Handler<span class="token punctuation">,</span> allowedHost <span class="token builtin">string</span><span class="token punctuation">)</span> http<span class="token punctuation">.</span>Handler <span class="token punctuation">{</span>
+	fn <span class="token operator">:=</span> <span class="token keyword">func</span><span class="token punctuation">(</span>w http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> r<span class="token punctuation">.</span>Host <span class="token operator">==</span> allowedHost <span class="token punctuation">{</span>
+			handler<span class="token punctuation">.</span><span class="token function">ServeHTTP</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> r<span class="token punctuation">)</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			w<span class="token punctuation">.</span><span class="token function">WriteHeader</span><span class="token punctuation">(</span><span class="token number">403</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> http<span class="token punctuation">.</span><span class="token function">HandlerFunc</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p>可以看到，我们在函数内部定义可一个匿名函数 fn，这个匿名函数便是我们要返回的 Handler，如果请求用户的 Host 满足 allowedHost,便可以将调用 myHandler 的函数返回，否则直接返回一个操作 403 的函数。整个代码如下：</p><pre class="language-go"><code><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">&quot;net/http&quot;</span>
+
+<span class="token keyword">func</span> <span class="token function">SingleHost</span><span class="token punctuation">(</span>handler http<span class="token punctuation">.</span>Handler<span class="token punctuation">,</span> allowedHost <span class="token builtin">string</span><span class="token punctuation">)</span> http<span class="token punctuation">.</span>Handler <span class="token punctuation">{</span>
+	fn <span class="token operator">:=</span> <span class="token keyword">func</span><span class="token punctuation">(</span>w http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> r<span class="token punctuation">.</span>Host <span class="token operator">==</span> allowedHost <span class="token punctuation">{</span>
+			handler<span class="token punctuation">.</span><span class="token function">ServeHTTP</span><span class="token punctuation">(</span>w<span class="token punctuation">,</span> r<span class="token punctuation">)</span>
+		<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+			w<span class="token punctuation">.</span><span class="token function">WriteHeader</span><span class="token punctuation">(</span><span class="token number">403</span><span class="token punctuation">)</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> http<span class="token punctuation">.</span><span class="token function">HandlerFunc</span><span class="token punctuation">(</span>fn<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">myHandler</span><span class="token punctuation">(</span>w http<span class="token punctuation">.</span>ResponseWriter<span class="token punctuation">,</span> r <span class="token operator">*</span>http<span class="token punctuation">.</span>Request<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	w<span class="token punctuation">.</span><span class="token function">Write</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">byte</span><span class="token punctuation">(</span><span class="token string">&quot;Hello World&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	single <span class="token operator">:=</span> <span class="token function">SingleHost</span><span class="token punctuation">(</span>http<span class="token punctuation">.</span><span class="token function">HandlerFunc</span><span class="token punctuation">(</span>myHandler<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">&quot;refuse.com&quot;</span><span class="token punctuation">)</span>
+	http<span class="token punctuation">.</span><span class="token function">ListenAndServe</span><span class="token punctuation">(</span><span class="token string">&quot;:8000&quot;</span><span class="token punctuation">,</span> single<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre><p>我们还是通过 curl 来测试一下</p><pre class="language-bash"><code>$ <span class="token function">curl</span> --head localhost:8000
+HTTP/1.1 403 Forbidden
+Date: Sun, 21 Jan 2018 08:45:39 GMT
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>utf-8
+</code></pre><p>可以看到由于不满足 refuse.com 的条件，我们会得到一个 403，让我们将 refuse.com 改为 localhost:8000 测试一下。</p><pre class="language-bash"><code>$ <span class="token function">curl</span> localhost:8000
+Hello World
+</code></pre><p>与刚才一样我们得到了 HelloWorld 这个正确结果。好，我们通过以函数的形式实现了上面同样的功能，当然，这两种方法都可行，主要看个人喜好了，喜欢函数式编程的我还是喜欢后者（笑）。今天就到这里了，祝掘金越办越好！！！</p></div><div class="content edit-link"><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true/edit/master/docs/blog/Web-2.md" target="_blank" rel="noopener noreferrer">Edit this page</a><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/blog/Web-1.html" class="prev">
+          Web 学习（1）——标准库 http 实现 server
+        </a></span><!----></p></div></div></div></div>
+    <script src="/assets/js/3.dec539e8.js" defer></script><script src="/assets/js/app.2c76701a.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "vuepress-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "eject": "vuepress eject docs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/algoliasearch": "^3.24.10"
+  },
+  "dependencies": {
+    "algoliasearch": "^3.27.0",
+    "vuepress": "^0.8.3"
+  }
+}

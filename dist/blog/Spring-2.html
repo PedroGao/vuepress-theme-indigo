@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pedro Blog | SpringBoot 学习（三）Spring-data-jpa</title>
+    <meta name="description" content="Just a blog for a unknown man">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.2124b703.css" as="style"><link rel="preload" href="/assets/js/app.2c76701a.js" as="script"><link rel="preload" href="/assets/js/6.1e5d73bd.js" as="script"><link rel="prefetch" href="/assets/js/7.69c868d8.js"><link rel="prefetch" href="/assets/js/1.5f21b350.js"><link rel="prefetch" href="/assets/js/2.ad147154.js"><link rel="prefetch" href="/assets/js/3.dec539e8.js"><link rel="prefetch" href="/assets/js/4.379f4350.js"><link rel="prefetch" href="/assets/js/5.39f5f0d6.js"><link rel="prefetch" href="/assets/js/8.4936efcb.js"><link rel="prefetch" href="/assets/js/9.9e9978a4.js"><link rel="prefetch" href="/assets/js/10.f3f4ca22.js"><link rel="prefetch" href="/assets/js/11.58ce6f32.js"><link rel="prefetch" href="/assets/js/12.6c7981c3.js"><link rel="prefetch" href="/assets/js/13.593672d8.js"><link rel="prefetch" href="/assets/js/14.e1db0581.js"><link rel="prefetch" href="/assets/js/15.4bc5cf62.js"><link rel="prefetch" href="/assets/js/16.de4f6602.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2124b703.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      Pedro Blog
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><a href="/essay/" class="nav-link">随笔</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Source
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><a href="/essay/" class="nav-link">随笔</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Source
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>博客</span><!----></p><ul class="sidebar-group-items"><li><a href="/blog/" class="sidebar-link">谈谈瓶颈</a></li><li><a href="/blog/Go-1.html" class="sidebar-link">Go 语言，Vue，Elasticsearch 打造个人博客</a></li><li><a href="/blog/Go-2.html" class="sidebar-link">Go 语言学习（1）——标准库 fmt</a></li><li><a href="/blog/Search-1.html" class="sidebar-link">自制信息检索网站（一）——爬取掘金数据</a></li><li><a href="/blog/Search-2.html" class="sidebar-link">自制信息检索网站（三）——Go 语言标准库实现后端</a></li><li><a href="/blog/Search-3.html" class="sidebar-link">自制信息检索网站（二）——分析掘金数据</a></li><li><a href="/blog/Spring-1.html" class="sidebar-link">SpringBoot 学习（一）起手式与 RestController</a></li><li><a href="/blog/Spring-2.html" class="active sidebar-link">SpringBoot 学习（三）Spring-data-jpa</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/Spring-2.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/blog/Spring-2.html#起手" class="sidebar-link">起手</a></li><li class="sidebar-sub-header"><a href="/blog/Spring-2.html#注解驱动" class="sidebar-link">注解驱动</a></li><li class="sidebar-sub-header"><a href="/blog/Spring-2.html#数据库映射方式" class="sidebar-link">数据库映射方式</a></li><li class="sidebar-sub-header"><a href="/blog/Spring-2.html#为当前表添加前缀" class="sidebar-link">为当前表添加前缀</a></li></ul></li><li><a href="/blog/Spring-3.html" class="sidebar-link">SpringBoot 学习（二）——过滤器 filter,拦截器 intercepter,切面 aspect</a></li><li><a href="/blog/Web-1.html" class="sidebar-link">Web 学习（1）——标准库 http 实现 server</a></li><li><a href="/blog/Web-2.html" class="sidebar-link">Web 学习（2）——实现中间件(middleware)</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="springboot-学习（三）spring-data-jpa"><a href="#springboot-学习（三）spring-data-jpa" aria-hidden="true" class="header-anchor">#</a> SpringBoot 学习（三）Spring-data-jpa</h1><h2 id="前言"><a href="#前言" aria-hidden="true" class="header-anchor">#</a> 前言</h2><p>最近挺忙的，一直在准备复试，所以断更了好久。前面我们学习了 SpringMVC 相关的知识。今天进入 spring 另外一个子项目 spring-data-jpa 的学习。spring-data-jpa 是 spring 在 java 官方 jpa 标准上的一个子项目，主要用于快速的操作数据库。</p><h2 id="起手"><a href="#起手" aria-hidden="true" class="header-anchor">#</a> 起手</h2><p>在 spring boot 中，spring-data-jpa 可以迅速通过 spring-boot-data-jpa-stater 快速集成。</p><pre class="language-xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-data-jpa<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>
+</code></pre><p>在 maven 中添加依赖后便可以在项目中使用了。由于是对数据库进行操作，所以必须在配置文件中添加关于数据库的配置。</p><pre class="language-properties"><code><span class="token attr-name">spring.datasource.driver-class-name</span><span class="token punctuation">=</span><span class="token attr-value">com.mysql.jdbc.Driver</span>
+<span class="token attr-name">spring.datasource.url</span><span class="token punctuation">=</span><span class="token attr-value">jdbc:mysql://localhost:3306/bookshop?useUnicode=yes&amp;characterEncoding=UTF-8&amp;useSSL=false</span>
+<span class="token attr-name">spring.datasource.username</span><span class="token punctuation">=</span><span class="token attr-value">root</span>
+<span class="token attr-name">spring.datasource.password</span><span class="token punctuation">=</span><span class="token attr-value">123456</span>
+</code></pre><h2 id="注解驱动"><a href="#注解驱动" aria-hidden="true" class="header-anchor">#</a> 注解驱动</h2><p>spring-data-jpa 与其他 spring 子项目一样采用注解驱动，因此用好注解便可以很好的使用 jpa 了。首先我们创建一个 Book 类。</p><pre class="language-java"><code><span class="token annotation punctuation">@Entity</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Book</span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Id</span>
+    <span class="token annotation punctuation">@GeneratedValue</span>
+    <span class="token keyword">private</span> Long id<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre><p>这个类是一个很简单的 Java POJO 类，我们在类上添加了 Entity 注解，熟悉 hibernate 的一定很熟悉，因为 java jpa 正是由 hibernate 支持的，spring-data-jpa 默认使用的也是 hibernate。在 Book 类中，我们添加了两个属性 id,name，id 这个属性上添加了 Id,GeneratedValue 这两个注解，Id 表明这个字段是数据库表的主键，GeneratedValue 表示这个主键是自动生成。</p><p>再新建一个 Author 类了解一下其他的注解作用。</p><pre class="language-java"><code><span class="token annotation punctuation">@Entity</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Author</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Id</span>
+    <span class="token annotation punctuation">@GeneratedValue</span>
+    <span class="token keyword">private</span> Long id<span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>columnDefinition <span class="token operator">=</span> <span class="token string">&quot;INT(3)&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> <span class="token keyword">int</span> age<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Temporal</span><span class="token punctuation">(</span>TemporalType<span class="token punctuation">.</span>DATE<span class="token punctuation">)</span>
+    <span class="token keyword">private</span> Date birthday<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Enumerated</span><span class="token punctuation">(</span>EnumType<span class="token punctuation">.</span>STRING<span class="token punctuation">)</span>
+    <span class="token keyword">private</span> Sex sex<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Embedded</span>
+    <span class="token keyword">private</span> Address address<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@ElementCollection</span>
+    <span class="token keyword">private</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> hobbies<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@ElementCollection</span>
+    <span class="token keyword">private</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>Address<span class="token punctuation">&gt;</span></span> addresses<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@OneToMany</span><span class="token punctuation">(</span>mappedBy <span class="token operator">=</span> <span class="token string">&quot;author&quot;</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@OrderBy</span><span class="token punctuation">(</span><span class="token string">&quot;book.name ASC&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>BookAuthor<span class="token punctuation">&gt;</span></span> books<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@OneToOne</span>
+    <span class="token keyword">private</span> AuthorInfo info<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Column 注解表示数据库表中对应的一个字段，在注解里面可以添加其他一些约束，如 columnDefinition 表示字段的大小，还有一些其他对应数据库字段的约束。
+Temporal 注解用来对日期字段进行操作，可以选择存入数据的日期是以标准日期形式，还是时间戳的形式。
+Enumerated 注解表明该字段使用 Enum 枚举来定义，也可通过 EnumType 来指定枚举的类型。
+ElementCollection 注解表示该字段可以对应数据库中的一个集合字段。
+OrderBy 注解表示当前字段按照什么字段，什么方式排序。
+Embeddable 注解表示当前类型是一个内嵌的类型。</p><pre class="language-java"><code><span class="token annotation punctuation">@Embeddable</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Address</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> String province<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String city<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String area<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String address<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String zipcode<span class="token punctuation">;</span>
+</code></pre><h2 id="数据库映射方式"><a href="#数据库映射方式" aria-hidden="true" class="header-anchor">#</a> 数据库映射方式</h2><p>ManyToOne 表示多对一，在数据库表中会以外键的形式链接两个表</p><p>OneToMany 表示一对多，默认会重新创建一个表来保存这两个表之间的关系，但我们不需要这个表因此可以指定 mappedBy 来将这个掌控权交给其它字段</p><pre class="language-java"><code><span class="token annotation punctuation">@Entity</span>
+<span class="token annotation punctuation">@Table</span><span class="token punctuation">(</span>name <span class="token operator">=</span> <span class="token string">&quot;book.category&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Category</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Id</span>
+    <span class="token annotation punctuation">@GeneratedValue</span>
+    <span class="token keyword">private</span> Long id<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Column</span><span class="token punctuation">(</span>length <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">,</span> nullable <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span> unique <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Transient</span>
+    <span class="token keyword">private</span> String xxxx<span class="token punctuation">;</span>
+
+    <span class="token comment">// 少用一对多单向关系</span>
+    <span class="token annotation punctuation">@OneToMany</span><span class="token punctuation">(</span>mappedBy <span class="token operator">=</span> <span class="token string">&quot;category&quot;</span><span class="token punctuation">)</span>
+    <span class="token keyword">private</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>Book<span class="token punctuation">&gt;</span></span> books<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Table 注解来表明当前表的名字
+Transient 注解表示数据库表不会创建当前的字段</p><h2 id="为当前表添加前缀"><a href="#为当前表添加前缀" aria-hidden="true" class="header-anchor">#</a> 为当前表添加前缀</h2><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">NamingStrategy</span> <span class="token keyword">extends</span> <span class="token class-name">ImplicitNamingStrategyJpaCompliantImpl</span> <span class="token punctuation">{</span>
+
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">protected</span> Identifier <span class="token function">toIdentifier</span><span class="token punctuation">(</span>String stringForm<span class="token punctuation">,</span> MetadataBuildingContext buildingContext<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">toIdentifier</span><span class="token punctuation">(</span><span class="token string">&quot;rc_&quot;</span> <span class="token operator">+</span> stringForm<span class="token punctuation">,</span> buildingContext<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>自定义一个 NamingStrategy 类继承 JPA 中的 ImplicitNamingStrategyJpaCompliantImpl 类并重写它的 toIdentifier 方法，给数据库表添加 rc_前缀。</p></div><div class="content edit-link"><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true/edit/master/docs/blog/Spring-2.md" target="_blank" rel="noopener noreferrer">Edit this page</a><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/blog/Spring-1.html" class="prev">
+          SpringBoot 学习（一）起手式与 RestController
+        </a></span><span class="next"><a href="/blog/Spring-3.html">
+          SpringBoot 学习（二）——过滤器 filter,拦截器 intercepter,切面 aspect
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/6.1e5d73bd.js" defer></script><script src="/assets/js/app.2c76701a.js" defer></script>
+  </body>
+</html>

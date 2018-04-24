@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pedro Blog | 自制信息检索网站（一）——爬取掘金数据</title>
+    <meta name="description" content="Just a blog for a unknown man">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.2124b703.css" as="style"><link rel="preload" href="/assets/js/app.2c76701a.js" as="script"><link rel="preload" href="/assets/js/10.f3f4ca22.js" as="script"><link rel="prefetch" href="/assets/js/7.69c868d8.js"><link rel="prefetch" href="/assets/js/1.5f21b350.js"><link rel="prefetch" href="/assets/js/2.ad147154.js"><link rel="prefetch" href="/assets/js/3.dec539e8.js"><link rel="prefetch" href="/assets/js/4.379f4350.js"><link rel="prefetch" href="/assets/js/5.39f5f0d6.js"><link rel="prefetch" href="/assets/js/6.1e5d73bd.js"><link rel="prefetch" href="/assets/js/8.4936efcb.js"><link rel="prefetch" href="/assets/js/9.9e9978a4.js"><link rel="prefetch" href="/assets/js/11.58ce6f32.js"><link rel="prefetch" href="/assets/js/12.6c7981c3.js"><link rel="prefetch" href="/assets/js/13.593672d8.js"><link rel="prefetch" href="/assets/js/14.e1db0581.js"><link rel="prefetch" href="/assets/js/15.4bc5cf62.js"><link rel="prefetch" href="/assets/js/16.de4f6602.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2124b703.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      Pedro Blog
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><a href="/essay/" class="nav-link">随笔</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Source
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><a href="/essay/" class="nav-link">随笔</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Source
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>博客</span><!----></p><ul class="sidebar-group-items"><li><a href="/blog/" class="sidebar-link">谈谈瓶颈</a></li><li><a href="/blog/Go-1.html" class="sidebar-link">Go 语言，Vue，Elasticsearch 打造个人博客</a></li><li><a href="/blog/Go-2.html" class="sidebar-link">Go 语言学习（1）——标准库 fmt</a></li><li><a href="/blog/Search-1.html" class="active sidebar-link">自制信息检索网站（一）——爬取掘金数据</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/Search-1.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/blog/Search-1.html#一、结构" class="sidebar-link">一、结构</a></li><li class="sidebar-sub-header"><a href="/blog/Search-1.html#二、推荐页爬取" class="sidebar-link">二、推荐页爬取</a></li><li class="sidebar-sub-header"><a href="/blog/Search-1.html#三、前端页，后端页，人工智能页爬取" class="sidebar-link">三、前端页，后端页，人工智能页爬取</a></li></ul></li><li><a href="/blog/Search-2.html" class="sidebar-link">自制信息检索网站（三）——Go 语言标准库实现后端</a></li><li><a href="/blog/Search-3.html" class="sidebar-link">自制信息检索网站（二）——分析掘金数据</a></li><li><a href="/blog/Spring-1.html" class="sidebar-link">SpringBoot 学习（一）起手式与 RestController</a></li><li><a href="/blog/Spring-2.html" class="sidebar-link">SpringBoot 学习（三）Spring-data-jpa</a></li><li><a href="/blog/Spring-3.html" class="sidebar-link">SpringBoot 学习（二）——过滤器 filter,拦截器 intercepter,切面 aspect</a></li><li><a href="/blog/Web-1.html" class="sidebar-link">Web 学习（1）——标准库 http 实现 server</a></li><li><a href="/blog/Web-2.html" class="sidebar-link">Web 学习（2）——实现中间件(middleware)</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="自制信息检索网站（一）——爬取掘金数据"><a href="#自制信息检索网站（一）——爬取掘金数据" aria-hidden="true" class="header-anchor">#</a> 自制信息检索网站（一）——爬取掘金数据</h1><h2 id="前言"><a href="#前言" aria-hidden="true" class="header-anchor">#</a> 前言</h2><p>最近一直在掘金上浏览，写博，于是萌生了分析一下掘金的念头。于是顶着冷冰冰的键盘，硬生生的搞了个爬虫把掘金给爬了。掘金的爬取其实很好写，不需要页面解析，直接请求 ajax 数据，不需要模拟登陆，也不需要怕流量过大而被发现的问题。</p><p>下面笔者就来说一说掘金的爬虫。</p><h2 id="一、结构"><a href="#一、结构" aria-hidden="true" class="header-anchor">#</a> 一、结构</h2><p><img src="https://user-gold-cdn.xitu.io/2018/1/26/16131f49e5e23f42?w=1848&h=973&f=png&s=222632" alt>
+上图为掘金未登录的页面，可以看到掘金与知乎不一样，不登陆的状态下也是可以浏览的。对于知乎，笔者这里想要吐槽一下，知乎的内容太散了，爬了几百条发现都是某星出轨之类的，所以便放弃了。在页面的二级标题，也就是推荐、前端、Android 这样的标签就是笔者想要爬取的内容。</p><h2 id="二、推荐页爬取"><a href="#二、推荐页爬取" aria-hidden="true" class="header-anchor">#</a> 二、推荐页爬取</h2><p>掘金的数据基本都是动态加载的，因此只需要模拟请求便可以拿到数据。首先 F12 来分析一下掘金请求的参数和地址：</p><pre class="language-bash"><code>--Response Headers
+Request URL:https://recommender-api-ms.juejin.im/v1/get_recommended_entry?suid<span class="token operator">=</span>uuBrUzMZmbmaZibarEyy<span class="token operator">&amp;</span>ab<span class="token operator">=</span>welcome_3<span class="token operator">&amp;</span>src<span class="token operator">=</span>web
+Request Method:GET
+Status Code:200 OK
+Remote Address:124.42.118.246:443
+Referrer Policy:no-referrer-when-downgrade
+
+--Request Headers
+Accept:*/*
+Accept-Encoding:gzip, deflate, br
+Accept-Language:zh-CN,zh<span class="token punctuation">;</span>q<span class="token operator">=</span>0.9
+Connection:keep-alive
+Host:recommender-api-ms.juejin.im
+Origin:https://juejin.im
+Referer:https://juejin.im/
+User-Agent:Mozilla/5.0 <span class="token punctuation">(</span>Windows NT 6.1<span class="token punctuation">;</span> Win64<span class="token punctuation">;</span> x64<span class="token punctuation">)</span> AppleWebKit/537.36 <span class="token punctuation">(</span>KHTML, like Gecko<span class="token punctuation">)</span> Chrome/63.0.3239.132 Safari/537.36
+
+--Query String Params
+suid:uuBrUzMZmbmaZibarEyy
+ab:welcome_3
+src:web
+</code></pre><p>通过上面参数不难发现掘金的数据请求主要在 Accept,Host,Referer 三个关键点上，因此模拟请求必须带上这三个固定的参数。对于 Query Params 这三个参数也必须带上，后面在分析其它分类时我们可以明显的看到它的不同。所以这里用 python 的 Requests 库来模拟请求的参数主要如下：</p><pre class="language-python"><code>api_url <span class="token operator">=</span> <span class="token string">'https://recommender-api-ms.juejin.im/v1/get_recommended_entry?suid=uuBrUzMZmbmaZibarEyy&amp;ab=welcome_3&amp;src=web'</span>
+
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Accept'</span><span class="token punctuation">:</span> <span class="token string">'*/*'</span><span class="token punctuation">,</span>
+    <span class="token string">'Host'</span><span class="token punctuation">:</span> <span class="token string">'recommender-api-ms.juejin.im'</span><span class="token punctuation">,</span>
+    <span class="token string">'Referer'</span><span class="token punctuation">:</span> <span class="token string">'https://juejin.im/'</span><span class="token punctuation">,</span>
+    <span class="token string">'Accept-Language'</span><span class="token punctuation">:</span> <span class="token string">'zh-CN,zh;q=0.9'</span><span class="token punctuation">,</span>
+    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre><p>通过这样的模拟，便可以直接请求掘金在推荐栏的数据。</p><pre class="language-python"><code><span class="token keyword">def</span> <span class="token function">get_response</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    wb_data <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> wb_data<span class="token punctuation">.</span>status_code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> wb_data<span class="token punctuation">.</span>text
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token boolean">None</span>
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    api_url <span class="token operator">=</span> <span class="token string">'https://recommender-api-ms.juejin.im/v1/get_recommended_entry?suid=uuBrUzMZmbmaZibarEyy&amp;ab=welcome_3&amp;src=web'</span>
+    text <span class="token operator">=</span> get_response<span class="token punctuation">(</span>api_url<span class="token punctuation">)</span>
+</code></pre><p>得到的请求数据是这样的：</p><pre class="language-json"><code><span class="token punctuation">{</span>
+      <span class="token property">&quot;collectionCount&quot;</span><span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;commentsCount&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;gfw&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;objectId&quot;</span><span class="token operator">:</span> <span class="token string">&quot;590ff2322f301e0057dc9a53&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;subscribersCount&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;ngxCachedTime&quot;</span><span class="token operator">:</span> <span class="token number">1516963223</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;recommenderInfo&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;filtered&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;source&quot;</span><span class="token operator">:</span> <span class="token string">&quot;total&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">0.42422419529517</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;tags&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;腾讯&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;ngxCached&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;ngxCachedTime&quot;</span><span class="token operator">:</span> <span class="token number">1516963189</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;55e836ff60b2fb7557a464cf&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;微信小程序&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;ngxCached&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;ngxCachedTime&quot;</span><span class="token operator">:</span> <span class="token number">1516963115</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;57ea2013a22b9d006164c1f8&quot;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+          <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;微信&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;ngxCached&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;ngxCachedTime&quot;</span><span class="token operator">:</span> <span class="token number">1516963193</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;55b9036700b0cecc83240cb7&quot;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;entryView&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5910051444d904007beed7ee&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;rankIndex&quot;</span><span class="token operator">:</span> <span class="token number">0.000044726535716285</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;author&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;category&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;ngxCached&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;article&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;id&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5562b428e4b00c57d9b94b9d&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;name&quot;</span><span class="token operator">:</span> <span class="token string">&quot;阅读&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;ngxCachedTime&quot;</span><span class="token operator">:</span> <span class="token number">1516963220</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;originalUrl&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://zhuanlan.zhihu.com/p/26693839&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;buildTime&quot;</span><span class="token operator">:</span> <span class="token number">1516264686.3909</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;original&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;user&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;community&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">&quot;weibo&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;nickname&quot;</span><span class="token operator">:</span> <span class="token string">&quot;kalasoo&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;avatar_url&quot;</span><span class="token operator">:</span> <span class="token string">&quot;http://tva1.sinaimg.cn/crop.0.0.512.512.180/5ef54d60jw8f0rsyzztzyj20e80e874o.jpg&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;uid&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1593134432&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Crazy monster! http://ming.today&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;wechat&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;阴明 - 掘金小册&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;avatarLarge&quot;</span><span class="token operator">:</span> <span class="token string">&quot;http://wx.qlogo.cn/mmopen/vi_32/t0SgynmSKLflfUwaQZnXQhN4WrZIagia4iaxVg3lga4snicFbGoibNrsIjU2KHcyJbMqEdb9EXUOJnyhAuDoVpkexQ/132&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;uid&quot;</span><span class="token operator">:</span> <span class="token string">&quot;oDv1Ew7y6zCYA6rf-tP-nRGi7_oY&quot;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;github&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">&quot;company&quot;</span><span class="token operator">:</span> <span class="token string">&quot;XITU&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;uid&quot;</span><span class="token operator">:</span> <span class="token string">&quot;1555092&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;blogAddress&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://www.ming.today&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;kalasoo&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;avatarLarge&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://avatars0.githubusercontent.com/u/1555092?v=4&quot;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;collectedEntriesCount&quot;</span><span class="token operator">:</span> <span class="token number">934</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;company&quot;</span><span class="token operator">:</span> <span class="token string">&quot;掘金&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;ngxCached&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;followeesCount&quot;</span><span class="token operator">:</span> <span class="token number">381</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;role&quot;</span><span class="token operator">:</span> <span class="token string">&quot;admin&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;jobTitle&quot;</span><span class="token operator">:</span> <span class="token string">&quot;搬砖&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;isAuthor&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;postedEntriesCount&quot;</span><span class="token operator">:</span> <span class="token number">705</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;subscribedTagsCount&quot;</span><span class="token operator">:</span> <span class="token number">63</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;objectId&quot;</span><span class="token operator">:</span> <span class="token string">&quot;551d677ee4b0cd5b623f49cb&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;postedPostsCount&quot;</span><span class="token operator">:</span> <span class="token number">17</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;viewedEntriesCount&quot;</span><span class="token operator">:</span> <span class="token number">35681</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;username&quot;</span><span class="token operator">:</span> <span class="token string">&quot;阴明&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;totalCommentsCount&quot;</span><span class="token operator">:</span> <span class="token number">1836</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;ngxCachedTime&quot;</span><span class="token operator">:</span> <span class="token number">1516963137</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;totalCollectionsCount&quot;</span><span class="token operator">:</span> <span class="token number">27391</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;avatarLarge&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://user-gold-cdn.xitu.io/2018/1/26/16130b27165cf9f6?w=1125&amp;h=1125&amp;f=png&amp;s=669077&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;followersCount&quot;</span><span class="token operator">:</span> <span class="token number">37942</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;article&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;screenshot&quot;</span><span class="token operator">:</span> <span class="token string">&quot;https://user-gold-cdn.xitu.io/2017/5/8/513c549f59f3b84f888cfbbb9d9ca747&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;lastCommentTime&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2017-05-08T16:18:40.472Z&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;content&quot;</span><span class="token operator">:</span> <span class="token string">&quot;腾讯官方讲解微信小程序二维码&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;hotIndex&quot;</span><span class="token operator">:</span> <span class="token number">294.3873</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;扫码背后藏了什么秘密？小程序码又为何长得像菊花？&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;createdAt&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2017-05-08T04:21:06.110Z&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;updatedAt&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2018-01-18T08:38:06.389Z&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;english&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;hot&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;viewsCount&quot;</span><span class="token operator">:</span> <span class="token number">247</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre><p>上面只是数据中的一段，掘金请求而来的数据非常完整，所以便可以直接解析送入数据库</p><pre class="language-python"><code><span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    text <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> text<span class="token punctuation">[</span><span class="token string">'m'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'ok'</span><span class="token punctuation">:</span>
+        data_list <span class="token operator">=</span> text<span class="token punctuation">[</span><span class="token string">'d'</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> data <span class="token keyword">in</span> data_list<span class="token punctuation">:</span>
+            collection_count <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'collectionCount'</span><span class="token punctuation">]</span>
+            comments_count <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'commentsCount'</span><span class="token punctuation">]</span>
+            views_count <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'viewsCount'</span><span class="token punctuation">]</span>
+            object_id <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'objectId'</span><span class="token punctuation">]</span>
+            title <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span>
+            created_date <span class="token operator">=</span> data<span class="token punctuation">[</span><span class="token string">'createdAt'</span><span class="token punctuation">]</span>
+            url <span class="token operator">=</span> <span class="token string">'https://juejin.im/entry/'</span> <span class="token operator">+</span> object_id
+            tags <span class="token operator">=</span> <span class="token punctuation">[</span>tag<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span> <span class="token keyword">for</span> tag <span class="token keyword">in</span> data<span class="token punctuation">[</span><span class="token string">'tags'</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+            <span class="token comment"># time.sleep(1)</span>
+            content_text <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> headers<span class="token operator">=</span>content_headers<span class="token punctuation">)</span>
+            content <span class="token operator">=</span> parse_content<span class="token punctuation">(</span>content_text<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+
+            insert_one <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token string">'collection_count'</span><span class="token punctuation">:</span> collection_count<span class="token punctuation">,</span>
+                <span class="token string">'url'</span><span class="token punctuation">:</span> url<span class="token punctuation">,</span>
+                <span class="token string">'comments_count'</span><span class="token punctuation">:</span> comments_count<span class="token punctuation">,</span>
+                <span class="token string">'views_count'</span><span class="token punctuation">:</span> views_count<span class="token punctuation">,</span>
+                <span class="token string">'object_id'</span><span class="token punctuation">:</span> object_id<span class="token punctuation">,</span>
+                <span class="token string">'title'</span><span class="token punctuation">:</span> title<span class="token punctuation">,</span>
+                <span class="token string">'created_date'</span><span class="token punctuation">:</span> created_date<span class="token punctuation">,</span>
+                <span class="token string">'tags'</span><span class="token punctuation">:</span> tags<span class="token punctuation">,</span>
+                <span class="token string">'content'</span><span class="token punctuation">:</span> content
+            <span class="token punctuation">}</span>
+            collection<span class="token punctuation">.</span>insert_one<span class="token punctuation">(</span>insert_one<span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'one done'</span><span class="token punctuation">)</span>
+</code></pre><p>这段代码中，我们可以看到笔者提取了每一项中的部分数据，然后在 url 这一块中，掘金的页面 url 其实就是 https://juejin.im/entry/ + object_id，这个 object_id 也是掘金数据里面的 object_id，因此只要将其拼凑起来便是该文章的 url。还有进入该文章的 url 之后，我们还必须获取文章的内容，因此这里有个 parse_content 函数：</p><pre class="language-python"><code><span class="token keyword">def</span> <span class="token function">parse_content</span><span class="token punctuation">(</span>content_text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>content_text<span class="token punctuation">,</span> <span class="token string">'lxml'</span><span class="token punctuation">)</span>
+    p_nums <span class="token operator">=</span> <span class="token punctuation">[</span>item<span class="token punctuation">.</span>get_text<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">for</span> item <span class="token keyword">in</span> soup<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token keyword">return</span> remove_tags<span class="token punctuation">(</span><span class="token string">&quot;&quot;</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>p_nums<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><p>由于掘金的请求数据与请求页面的 headers 并不相同，因此这里请求 content_text 的 content_headers 的内容如下：</p><pre class="language-python"><code>content_headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Accept'</span><span class="token punctuation">:</span> <span class="token string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'</span><span class="token punctuation">,</span>
+    <span class="token string">'Accept-Language'</span><span class="token punctuation">:</span> <span class="token string">'zh-CN,zh;q=0.9'</span><span class="token punctuation">,</span>
+    <span class="token string">'Host'</span><span class="token punctuation">:</span> <span class="token string">'juejin.im'</span><span class="token punctuation">,</span>
+    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0'</span>
+<span class="token punctuation">}</span>
+</code></pre><p>在得到文章页面的数据后，提取该文章页面的所有 p 标签基本上就能得到整个文章的内容了，然后将所有需要的数据插入 MongoDB 中。</p><h2 id="三、前端页，后端页，人工智能页爬取"><a href="#三、前端页，后端页，人工智能页爬取" aria-hidden="true" class="header-anchor">#</a> 三、前端页，后端页，人工智能页爬取</h2><p>整个掘金的主页除了推荐这一块的数据结构稍有不同其它的数据结构都是一样的，只不过请求的 headers 会有一些改变，但整体跟上述的爬取方式一模一样。</p><pre class="language-python"><code>origin_url <span class="token operator">=</span> <span class="token string">'https://timeline-merger-ms.juejin.im/v1/get_entry_by_rank?src=web&amp;before={}&amp;limit=20&amp;category=5562b415e4b00c57d9b94ac8'</span>
+
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Accept'</span><span class="token punctuation">:</span> <span class="token string">'*/*'</span><span class="token punctuation">,</span>
+    <span class="token string">'Host'</span><span class="token punctuation">:</span> <span class="token string">'timeline-merger-ms.juejin.im'</span><span class="token punctuation">,</span>
+    <span class="token string">'Referer'</span><span class="token punctuation">:</span> <span class="token string">'https://juejin.im/welcome/frontend'</span><span class="token punctuation">,</span>
+    <span class="token string">'Accept-Language'</span><span class="token punctuation">:</span> <span class="token string">'zh-CN,zh;q=0.9'</span><span class="token punctuation">,</span>
+    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre><p>注意这里的 origin_url 并没有写死，原因是掘金的 ajax 请求的参数 before 中需要一个 rankIndex 的参数，这个参数需要我们获取。但这个参数其实不难获取，在我们请求下一页的数据时，掘金会自动从当前页的最后一个数据项中的 rankIndex 拿来当做这个参数，因此我们请求下一页是，只需把当前页最后一项的 rankIndex 取出来然后加入到 origin_url 生成下一页的请求 url 即可。</p><pre class="language-python"><code><span class="token keyword">def</span> <span class="token function">parse</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    text <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> text<span class="token punctuation">[</span><span class="token string">'m'</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'ok'</span><span class="token punctuation">:</span>
+        data_list <span class="token operator">=</span> text<span class="token punctuation">[</span><span class="token string">'d'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'entrylist'</span><span class="token punctuation">]</span>
+        rank_index <span class="token operator">=</span> data_list<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'rankIndex'</span><span class="token punctuation">]</span>
+        <span class="token keyword">for</span> data <span class="token keyword">in</span> data_list<span class="token punctuation">:</span>
+        <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">return</span> rank_index
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    api_url <span class="token operator">=</span> origin_url<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token number">5.1561705670688</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>api_url<span class="token punctuation">)</span>
+        text <span class="token operator">=</span> get_response<span class="token punctuation">(</span>api_url<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> text<span class="token punctuation">:</span>
+            rank_index <span class="token operator">=</span> parse<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+            api_url <span class="token operator">=</span> origin_url<span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>rank_index<span class="token punctuation">)</span>
+            time<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+</code></pre><p>上面的代码中可以看到这个逻辑的实现，这里说明一下 5.1561705670688 这个参数是我手动的从掘金的某一项数据中取来的，也可以从数据中任取一个 rankIndex 来作为开头，这样这个前段项的爬虫就写好了。</p><p>后端项与人工智能其实与前段项一模一样，只不过 headers 和 origin_url 要改变一下：</p><pre class="language-python"><code><span class="token operator">-</span><span class="token operator">-</span> back<span class="token operator">-</span>end
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Accept'</span><span class="token punctuation">:</span> <span class="token string">'*/*'</span><span class="token punctuation">,</span>
+    <span class="token string">'Host'</span><span class="token punctuation">:</span> <span class="token string">'timeline-merger-ms.juejin.im'</span><span class="token punctuation">,</span>
+    <span class="token string">'Referer'</span><span class="token punctuation">:</span> <span class="token string">'https://juejin.im/welcome/backend'</span><span class="token punctuation">,</span>
+    <span class="token string">'Accept-Language'</span><span class="token punctuation">:</span> <span class="token string">'zh-CN,zh;q=0.9'</span><span class="token punctuation">,</span>
+    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+origin_url <span class="token operator">=</span> <span class="token string">'https://timeline-merger-ms.juejin.im/v1/get_entry_by_rank?src=web&amp;before={}&amp;limit=20&amp;category=5562b419e4b00c57d9b94ae2'</span>
+
+<span class="token operator">-</span><span class="token operator">-</span> AI
+headers <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'Accept'</span><span class="token punctuation">:</span> <span class="token string">'*/*'</span><span class="token punctuation">,</span>
+    <span class="token string">'Host'</span><span class="token punctuation">:</span> <span class="token string">'timeline-merger-ms.juejin.im'</span><span class="token punctuation">,</span>
+    <span class="token string">'Referer'</span><span class="token punctuation">:</span> <span class="token string">'https://juejin.im/welcome/ai'</span><span class="token punctuation">,</span>
+    <span class="token string">'Accept-Language'</span><span class="token punctuation">:</span> <span class="token string">'zh-CN,zh;q=0.9'</span><span class="token punctuation">,</span>
+    <span class="token string">'User-Agent'</span><span class="token punctuation">:</span> <span class="token string">'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+origin_url <span class="token operator">=</span> <span class="token string">'https://timeline-merger-ms.juejin.im/v1/get_entry_by_rank?src=web&amp;before={}&amp;limit=20&amp;category=57be7c18128fe1005fa902de'</span>
+</code></pre><p>笔者在爬取的时候其实是三个部分一起运行的，一下子就爬了 3000 条内容。后续我们对这 3000 条数据做个分析，然后放到准备制作的信息检索网站上。整个项目的源码读者可以在这获取<a href="https://github.com/PedroGao/juejin_spider" target="_blank" rel="noopener noreferrer">juejin_spider</a>。</p><p>另外其实这个信息检索网站，笔者已经搭建完毕了，只不过数据时从伯乐在线爬下来的</p><p><img src="https://user-gold-cdn.xitu.io/2018/1/26/16132297a4b650c2?w=1848&h=973&f=png&s=267716" alt>
+后面加入上述所爬取到的掘金数据，感兴趣的可以在这里看一下<a href="https://github.com/PedroGao/elasticsearch-demo" target="_blank" rel="noopener noreferrer">elasticsearch-demo</a>。好了，今天就到这里了，手太冷了（笑）。</p></div><div class="content edit-link"><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true/edit/master/docs/blog/Search-1.md" target="_blank" rel="noopener noreferrer">Edit this page</a><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/blog/Go-2.html" class="prev">
+          Go 语言学习（1）——标准库 fmt
+        </a></span><span class="next"><a href="/blog/Search-2.html">
+          自制信息检索网站（三）——Go 语言标准库实现后端
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/10.f3f4ca22.js" defer></script><script src="/assets/js/app.2c76701a.js" defer></script>
+  </body>
+</html>

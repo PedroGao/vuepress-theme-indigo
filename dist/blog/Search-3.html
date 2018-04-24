@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Pedro Blog | 自制信息检索网站（二）——分析掘金数据</title>
+    <meta name="description" content="Just a blog for a unknown man">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.2124b703.css" as="style"><link rel="preload" href="/assets/js/app.2c76701a.js" as="script"><link rel="preload" href="/assets/js/8.4936efcb.js" as="script"><link rel="prefetch" href="/assets/js/7.69c868d8.js"><link rel="prefetch" href="/assets/js/1.5f21b350.js"><link rel="prefetch" href="/assets/js/2.ad147154.js"><link rel="prefetch" href="/assets/js/3.dec539e8.js"><link rel="prefetch" href="/assets/js/4.379f4350.js"><link rel="prefetch" href="/assets/js/5.39f5f0d6.js"><link rel="prefetch" href="/assets/js/6.1e5d73bd.js"><link rel="prefetch" href="/assets/js/9.9e9978a4.js"><link rel="prefetch" href="/assets/js/10.f3f4ca22.js"><link rel="prefetch" href="/assets/js/11.58ce6f32.js"><link rel="prefetch" href="/assets/js/12.6c7981c3.js"><link rel="prefetch" href="/assets/js/13.593672d8.js"><link rel="prefetch" href="/assets/js/14.e1db0581.js"><link rel="prefetch" href="/assets/js/15.4bc5cf62.js"><link rel="prefetch" href="/assets/js/16.de4f6602.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.2124b703.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/" class="home-link router-link-active"><!----><span class="site-name">
+      Pedro Blog
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><a href="/essay/" class="nav-link">随笔</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Source
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">博客</a></div><div class="nav-item"><a href="/essay/" class="nav-link">随笔</a></div><div class="nav-item"><a href="/about/" class="nav-link">关于</a></div><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Source
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav><ul class="sidebar-links"><li><div class="sidebar-group first"><p class="sidebar-heading open"><span>博客</span><!----></p><ul class="sidebar-group-items"><li><a href="/blog/" class="sidebar-link">谈谈瓶颈</a></li><li><a href="/blog/Go-1.html" class="sidebar-link">Go 语言，Vue，Elasticsearch 打造个人博客</a></li><li><a href="/blog/Go-2.html" class="sidebar-link">Go 语言学习（1）——标准库 fmt</a></li><li><a href="/blog/Search-1.html" class="sidebar-link">自制信息检索网站（一）——爬取掘金数据</a></li><li><a href="/blog/Search-2.html" class="sidebar-link">自制信息检索网站（三）——Go 语言标准库实现后端</a></li><li><a href="/blog/Search-3.html" class="active sidebar-link">自制信息检索网站（二）——分析掘金数据</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/Search-3.html#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/blog/Search-3.html#掘金文章长度" class="sidebar-link">掘金文章长度</a></li><li class="sidebar-sub-header"><a href="/blog/Search-3.html#掘金的标签" class="sidebar-link">掘金的标签</a></li><li class="sidebar-sub-header"><a href="/blog/Search-3.html#掘金每年的文章数" class="sidebar-link">掘金每年的文章数</a></li><li class="sidebar-sub-header"><a href="/blog/Search-3.html#掘金文章的浏览量、收藏量" class="sidebar-link">掘金文章的浏览量、收藏量</a></li><li class="sidebar-sub-header"><a href="/blog/Search-3.html#掘金的标题和内容" class="sidebar-link">掘金的标题和内容</a></li></ul></li><li><a href="/blog/Spring-1.html" class="sidebar-link">SpringBoot 学习（一）起手式与 RestController</a></li><li><a href="/blog/Spring-2.html" class="sidebar-link">SpringBoot 学习（三）Spring-data-jpa</a></li><li><a href="/blog/Spring-3.html" class="sidebar-link">SpringBoot 学习（二）——过滤器 filter,拦截器 intercepter,切面 aspect</a></li><li><a href="/blog/Web-1.html" class="sidebar-link">Web 学习（1）——标准库 http 实现 server</a></li><li><a href="/blog/Web-2.html" class="sidebar-link">Web 学习（2）——实现中间件(middleware)</a></li></ul></div></li></ul></div><div class="page"><div class="content"><h1 id="自制信息检索网站（二）——分析掘金数据"><a href="#自制信息检索网站（二）——分析掘金数据" aria-hidden="true" class="header-anchor">#</a> 自制信息检索网站（二）——分析掘金数据</h1><h2 id="前言"><a href="#前言" aria-hidden="true" class="header-anchor">#</a> 前言</h2><p>今天继续自制信息检索网站的第二步，简单的分析一下掘金的数据。在上次第一步得到数据后通过简单的数据清洗可视化来看一看掘金。</p><p>本次使用的是 jupyter notebook 用到的库有 pymongo,用来连接 MongoDB 数据库；jieba 用来进行分词；pyecharts 用来数据可视化。</p><h2 id="掘金文章长度"><a href="#掘金文章长度" aria-hidden="true" class="header-anchor">#</a> 掘金文章长度</h2><p>这一部分会对所有爬取到的掘金文章的长度进行统计，首先统计所有文章的长度：</p><pre class="language-python"><code><span class="token comment"># 分析文章的长度分布</span>
+all_items <span class="token operator">=</span> collection<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+all_content_length <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token builtin">len</span><span class="token punctuation">(</span>item<span class="token punctuation">[</span><span class="token string">'content'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">for</span> item <span class="token keyword">in</span> all_items<span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>all_items<span class="token punctuation">.</span>count<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 输出 2996</span>
+</code></pre><p>然后在文章长度按照 large(&gt;=10000 字),middle(5000-10000 字),small(1000-5000 字),x-small(0-1000 字)进行分类：</p><pre class="language-python"><code>content_length_distribution <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'large'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token string">'middle'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token string">'small'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token string">'x-small'</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">for</span> item_content_length <span class="token keyword">in</span> all_content_length<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> item_content_length <span class="token operator">&gt;=</span> <span class="token number">10000</span><span class="token punctuation">:</span>
+        content_length_distribution<span class="token punctuation">[</span><span class="token string">'large'</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">elif</span> item_content_length <span class="token operator">&gt;=</span> <span class="token number">5000</span> <span class="token operator">and</span> item_content_length <span class="token operator">&lt;</span> <span class="token number">10000</span><span class="token punctuation">:</span>
+        content_length_distribution<span class="token punctuation">[</span><span class="token string">'middle'</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">elif</span> item_content_length <span class="token operator">&gt;=</span> <span class="token number">1000</span> <span class="token operator">and</span> item_content_length <span class="token operator">&lt;</span> <span class="token number">5000</span><span class="token punctuation">:</span>
+        content_length_distribution<span class="token punctuation">[</span><span class="token string">'small'</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        content_length_distribution<span class="token punctuation">[</span><span class="token string">'x-small'</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>content_length_distribution<span class="token punctuation">)</span>
+
+<span class="token comment"># 输出 {'small': 1707, 'middle': 440, 'large': 175, 'x-small': 674}</span>
+</code></pre><p>通过 echarts 绘图:</p><pre class="language-python"><code><span class="token keyword">from</span> pyecharts <span class="token keyword">import</span> Pie
+pie <span class="token operator">=</span> Pie<span class="token punctuation">(</span><span class="token string">&quot;掘金文章长度分布图&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;单位为：（字）&quot;</span><span class="token punctuation">)</span>
+pie<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">&quot;字数&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&quot;x-small&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;large&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;middle&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;small&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">674</span><span class="token punctuation">,</span><span class="token number">175</span><span class="token punctuation">,</span><span class="token number">440</span><span class="token punctuation">,</span><span class="token number">1707</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        is_more_utils<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+pie
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2018/1/27/1613758284ffd4c0?w=800&h=400&f=png&s=24136" alt>
+可以看到掘金的文章大多还是以 1000-5000 位多数的。然后我们看一下在 1000-5000 各部分的文章字数分布情况。</p><pre class="language-python"><code><span class="token keyword">from</span> pyecharts <span class="token keyword">import</span> Bar
+<span class="token comment"># 字数在1000 - 5000 的文章字数分布</span>
+small_content_length_distribution <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token string">'1000-2000'</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">,</span>
+    <span class="token string">'2000-3000'</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">,</span>
+    <span class="token string">'3000-4000'</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token punctuation">,</span>
+    <span class="token string">'4000-5000'</span><span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">for</span> item_content_length <span class="token keyword">in</span> all_content_length<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> item_content_length <span class="token operator">&gt;=</span> <span class="token number">1000</span> <span class="token operator">and</span> item_content_length <span class="token operator">&lt;</span> <span class="token number">2000</span><span class="token punctuation">:</span>
+        small_content_length_distribution<span class="token punctuation">[</span><span class="token string">'1000-2000'</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">elif</span> item_content_length <span class="token operator">&gt;=</span> <span class="token number">2000</span> <span class="token operator">and</span> item_content_length <span class="token operator">&lt;</span> <span class="token number">3000</span><span class="token punctuation">:</span>
+        small_content_length_distribution<span class="token punctuation">[</span><span class="token string">'2000-3000'</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">elif</span> item_content_length <span class="token operator">&gt;=</span> <span class="token number">3000</span> <span class="token operator">and</span> item_content_length <span class="token operator">&lt;</span> <span class="token number">4000</span><span class="token punctuation">:</span>
+        small_content_length_distribution<span class="token punctuation">[</span><span class="token string">'3000-4000'</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">elif</span> item_content_length <span class="token operator">&gt;=</span> <span class="token number">4000</span> <span class="token operator">and</span> item_content_length <span class="token operator">&lt;</span> <span class="token number">5000</span><span class="token punctuation">:</span>
+        small_content_length_distribution<span class="token punctuation">[</span><span class="token string">'4000-5000'</span><span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>small_content_length_distribution<span class="token punctuation">)</span>
+
+<span class="token comment">#输出 {'3000-4000': 347, '4000-5000': 238, '2000-3000': 495, '1000-2000': 627}</span>
+
+bar <span class="token operator">=</span> Bar<span class="token punctuation">(</span><span class="token string">'字数在1000 - 5000 的文章字数分布'</span><span class="token punctuation">,</span><span class="token string">&quot;单位为：（字）&quot;</span><span class="token punctuation">)</span>
+labels <span class="token operator">=</span> <span class="token punctuation">[</span>label <span class="token keyword">for</span> label <span class="token keyword">in</span> small_content_length_distribution<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+values <span class="token operator">=</span> <span class="token punctuation">[</span>value <span class="token keyword">for</span> value <span class="token keyword">in</span> small_content_length_distribution<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+<span class="token comment"># print(labels)</span>
+bar<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'字数'</span><span class="token punctuation">,</span>labels<span class="token punctuation">,</span>values<span class="token punctuation">,</span>is_more_utils<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+bar
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2018/1/27/161375a795ea0d60?w=800&h=400&f=png&s=21070" alt>
+这里可以看到在 1000-5000 字数内文章的分布还是比较均匀的。</p><h2 id="掘金的标签"><a href="#掘金的标签" aria-hidden="true" class="header-anchor">#</a> 掘金的标签</h2><p>掘金的文章大部分都自带 tags，我们来看一下这写 tags 多数有什么。</p><pre class="language-python"><code><span class="token comment"># 分析所有文章的tags</span>
+all_items <span class="token operator">=</span> collection<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment"># 获得所有的tags</span>
+all_tags <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> item <span class="token keyword">in</span> all_items<span class="token punctuation">:</span>
+    all_tags <span class="token operator">+=</span> item<span class="token punctuation">[</span><span class="token string">'tags'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>all_tags<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">20</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 输出 ['JavaScript', '前端', '微信小程序', 'RxJS', '微信', 'JavaScript', '设计', '微信小程序', '前端', '微信', '微信小程序', '微信小程序', '前端', '微信', '微信小程序', '前端', '微信', '微信小程序', 'JavaScript', '前端']</span>
+
+all_tags_set <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>all_tags<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>all_tags_set<span class="token punctuation">)</span><span class="token punctuation">)</span>
+all_tags_distribution <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> set_item <span class="token keyword">in</span> all_tags_set<span class="token punctuation">:</span>
+    all_tags_distribution<span class="token punctuation">[</span>set_item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token comment"># print(all_tags_distribution)</span>
+<span class="token keyword">for</span> tag_item <span class="token keyword">in</span> all_tags<span class="token punctuation">:</span>
+    all_tags_distribution<span class="token punctuation">[</span>tag_item<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+
+<span class="token keyword">from</span> pyecharts <span class="token keyword">import</span> WordCloud
+
+word_cloud <span class="token operator">=</span> WordCloud<span class="token punctuation">(</span><span class="token string">'掘金文章的标签的分布'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span>
+
+labels <span class="token operator">=</span> <span class="token punctuation">[</span>label <span class="token keyword">for</span> label <span class="token keyword">in</span> all_tags_distribution<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+values <span class="token operator">=</span> <span class="token punctuation">[</span>value <span class="token keyword">for</span> value <span class="token keyword">in</span> all_tags_distribution<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+word_cloud<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'次数'</span><span class="token punctuation">,</span>labels<span class="token punctuation">,</span>values<span class="token punctuation">)</span>
+word_cloud
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2018/1/27/161375e191a5ddc4?w=800&h=400&f=png&s=152977" alt>
+从这里可以看到 tags 还是跟近两年比较火的前端、人工智能相关。</p><h2 id="掘金每年的文章数"><a href="#掘金每年的文章数" aria-hidden="true" class="header-anchor">#</a> 掘金每年的文章数</h2><p>掘金每年的文章数呈现什么样的趋势了，我们来看一下。</p><pre class="language-python"><code>year_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> item_create_date <span class="token keyword">in</span> all_created_date<span class="token punctuation">:</span>
+    year_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>item_create_date<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+year_list <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>year_list<span class="token punctuation">,</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span><span class="token builtin">int</span><span class="token punctuation">(</span>x<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># print(year_list)</span>
+year_set <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>year_list<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>year_set<span class="token punctuation">)</span>
+all_year_distribution <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> set_item <span class="token keyword">in</span> year_set<span class="token punctuation">:</span>
+    all_year_distribution<span class="token punctuation">[</span>set_item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token keyword">for</span> list_item <span class="token keyword">in</span> year_list<span class="token punctuation">:</span>
+    all_year_distribution<span class="token punctuation">[</span>list_item<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>all_year_distribution<span class="token punctuation">)</span>
+
+<span class="token keyword">from</span> pyecharts <span class="token keyword">import</span> Line
+
+line <span class="token operator">=</span> Line<span class="token punctuation">(</span><span class="token string">'掘金文章年份分布图'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span>
+labels <span class="token operator">=</span> <span class="token punctuation">[</span>label <span class="token keyword">for</span> label <span class="token keyword">in</span> all_year_distribution<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+values <span class="token operator">=</span> <span class="token punctuation">[</span>value <span class="token keyword">for</span> value <span class="token keyword">in</span> all_year_distribution<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+line<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'文章数'</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'2015'</span><span class="token punctuation">,</span> <span class="token string">'2016'</span><span class="token punctuation">,</span> <span class="token string">'2017'</span><span class="token punctuation">,</span> <span class="token string">'2018'</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">327</span><span class="token punctuation">,</span> <span class="token number">1162</span><span class="token punctuation">,</span> <span class="token number">1503</span><span class="token punctuation">]</span><span class="token punctuation">,</span>is_more_utils<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+line
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2018/1/27/1613761387b9a0e4?w=800&h=400&f=png&s=21306" alt>
+可以看到，掘金近几年一直呈上升趋势，越来越多的人选择掘金，当然也因为笔者爬取的数据有限，所以结果仅供参考。我们再来看看去年，也就是 2017 每个月份的文章数。</p><pre class="language-python"><code><span class="token comment"># 2017年每个月份的文章分布图</span>
+month_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token comment"># all_created_date[:5]</span>
+<span class="token keyword">for</span> item_created_date <span class="token keyword">in</span> all_created_date<span class="token punctuation">:</span>
+    <span class="token keyword">if</span> item_created_date<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'2017'</span><span class="token punctuation">:</span>
+        month_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span>item_created_date<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'-'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+month_list<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
+month_set <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>month_list<span class="token punctuation">)</span>
+<span class="token comment"># print(month_set)</span>
+
+month_distribution <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> set_item <span class="token keyword">in</span> month_set<span class="token punctuation">:</span>
+    month_distribution<span class="token punctuation">[</span>set_item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token keyword">for</span> list_item <span class="token keyword">in</span> month_list<span class="token punctuation">:</span>
+    month_distribution<span class="token punctuation">[</span>list_item<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>month_distribution<span class="token punctuation">)</span>
+
+line <span class="token operator">=</span> Line<span class="token punctuation">(</span><span class="token string">'掘金文章2017年每月分布图'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span>
+labels <span class="token operator">=</span> <span class="token punctuation">[</span>label <span class="token keyword">for</span> label <span class="token keyword">in</span> month_distribution<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+values <span class="token operator">=</span> <span class="token punctuation">[</span>value <span class="token keyword">for</span> value <span class="token keyword">in</span> month_distribution<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+line<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'文章数'</span><span class="token punctuation">,</span>labels<span class="token punctuation">,</span>values<span class="token punctuation">,</span>is_more_utils<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+line
+
+<span class="token comment">#输出 {1: 60, 2: 15, 3: 17, 4: 25, 5: 41, 6: 23, 7: 29, 8: 51, 9: 64, 10: 137, 11: 200, 12: 500}</span>
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2018/1/27/16137635ce57c0f5?w=800&h=400&f=png&s=23739" alt></p><h2 id="掘金文章的浏览量、收藏量"><a href="#掘金文章的浏览量、收藏量" aria-hidden="true" class="header-anchor">#</a> 掘金文章的浏览量、收藏量</h2><p>我们接下来看一下那些文章是掘金里面的明星文章。首先是浏览量前 50 的文章。</p><pre class="language-python"><code><span class="token comment"># 浏览量前五十</span>
+views_count_distribution <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> item <span class="token keyword">in</span> sort_by_views_count<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+<span class="token comment">#     print(item['title'],item['views_count'])</span>
+    views_count_distribution<span class="token punctuation">[</span>item<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'views_count'</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>views_count_distribution<span class="token punctuation">)</span>
+
+<span class="token comment"># {'编写自己的代码库（javascript常用实例的实现与封装）': 16254, '未来的前端工程师': 11002, '你敢在post和get上刁难我，就别怪我装逼了': 14472, '送给前端开发者的一份新年礼物': 12775, 'B站的前端之路': 17492, '2018前端值得关注的技术': 23680, '微信小游戏跳一跳外挂辅助程序': 12887, '如何优雅地使用 Git': 11595, 'AI 系统首次实现真正自主编程，完爆初级程序员': 28363, '首个微信小程序开发教程！': 125928, '面试过阿里等互联网大公司，我知道了这些套路 | 掘金技术征文': 18862, '鹿晗关晓彤公开恋情，是如何把微博服务器搞炸的？': 21196, '某小公司RESTful、共用接口、前后端分离、接口约定的实践': 11735, '这一次，彻底弄懂 JavaScript 执行机制': 24905, '打造自己的JavaScript武器库': 12927, '100+ 超全的 web 开发工具和资源': 10838, 'JavaScript专题系列20篇正式完结！': 20346, 'iView 发布后台管理系统 iview-admin，没错，它就是你想要的': 14191, '2018 我所了解的 Vue 知识大全（一）': 11840, '[译] React、Jest、Flow 和 Immutable.js 将使用 MIT 许可证': 27578, '个人总结（css3新特性）': 12321, '教你用Python来玩微信跳一跳': 22652, '2017下半年掘金日报优质文章合集：前端篇': 16820, '[译] 2017 年比较 Angular、React、Vue 三剑客 ': 15398, '个人分享--web前端学习资源分享': 19548, '如何无痛降低 if else 面条代码复杂度': 19974, '技术胖155集前端视频教程-全部免费观看': 19691, '关于IT培训机构的个人看法': 18355, 'JS维护nginx反向代理，妈妈再也不用担心我跨域了！': 10739, '能让你开发效率翻倍的 VSCode 插件配置（上）': 11849, '手摸手，带你优雅的使用 icon': 11728, 'Vue 脱坑记 - 查漏补缺(汇总下群里高频询问的xxx及给出不靠谱的解决方案)': 26215, '前端入行两年--教会了我这些道理': 12649, '反击爬虫，前端工程师的脑洞可以有多大？': 11503, '永久免费！吴恩达刚公布的深度学习课程上线网易云课堂': 15603, '2018 Web 开发者最佳学习路线': 11105, '别再拿奇技淫巧搬砖了': 17900, 'GitHub 排名前 100 的安卓、iOS 项目简介': 14091, '源码圈 365 胖友的书单整理': 67221, '妈妈再也不用担心我不会webpack了': 15861}</span>
+
+bar <span class="token operator">=</span> Bar<span class="token punctuation">(</span><span class="token string">'掘金文章浏览量前50分布图'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span>
+labels <span class="token operator">=</span> <span class="token punctuation">[</span>label <span class="token keyword">for</span> label <span class="token keyword">in</span> views_count_distribution<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+values <span class="token operator">=</span> <span class="token punctuation">[</span>value <span class="token keyword">for</span> value <span class="token keyword">in</span> views_count_distribution<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+bar<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'浏览数'</span><span class="token punctuation">,</span>labels<span class="token punctuation">,</span>values<span class="token punctuation">,</span>is_more_utils<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+bar
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2018/1/27/16137662557c4694?w=800&h=400&f=png&s=21901" alt>
+由于 title 过于长所以这里显示不是很好，有兴趣的可以去 github 上面下载这个 notebook 看一下。再来看一下收藏量：</p><pre class="language-python"><code><span class="token comment"># 收藏量前五十</span>
+sort_by_collection_count <span class="token operator">=</span> collection<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token string">'collection_count'</span><span class="token punctuation">,</span>pymongo<span class="token punctuation">.</span>DESCENDING<span class="token punctuation">)</span>
+
+collection_count_distribution <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> item <span class="token keyword">in</span> sort_by_collection_count<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+<span class="token comment">#     print(item['title'],item['views_count'])</span>
+    collection_count_distribution<span class="token punctuation">[</span>item<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'collection_count'</span><span class="token punctuation">]</span>
+<span class="token comment"># print(collection_count_distribution)</span>
+
+bar <span class="token operator">=</span> Bar<span class="token punctuation">(</span><span class="token string">'掘金文章收藏量前50分布图'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span>
+labels <span class="token operator">=</span> <span class="token punctuation">[</span>label <span class="token keyword">for</span> label <span class="token keyword">in</span> collection_count_distribution<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+values <span class="token operator">=</span> <span class="token punctuation">[</span>value <span class="token keyword">for</span> value <span class="token keyword">in</span> collection_count_distribution<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+bar<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'收藏数'</span><span class="token punctuation">,</span>labels<span class="token punctuation">,</span>values<span class="token punctuation">,</span>is_more_utils<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+bar
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2018/1/27/1613767fde35bab4?w=800&h=400&f=png&s=24872" alt>
+下面是评论量：</p><pre class="language-python"><code><span class="token comment"># 评论量前五十</span>
+sort_by_comments_count <span class="token operator">=</span> collection<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token string">'comments_count'</span><span class="token punctuation">,</span>pymongo<span class="token punctuation">.</span>DESCENDING<span class="token punctuation">)</span>
+
+comments_count_distribution <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> item <span class="token keyword">in</span> sort_by_comments_count<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
+<span class="token comment">#     print(item['title'],item['views_count'])</span>
+    comments_count_distribution<span class="token punctuation">[</span>item<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> item<span class="token punctuation">[</span><span class="token string">'comments_count'</span><span class="token punctuation">]</span>
+<span class="token comment"># print(collection_count_distribution)</span>
+
+bar <span class="token operator">=</span> Bar<span class="token punctuation">(</span><span class="token string">'掘金文章评论量前50分布图'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span>
+labels <span class="token operator">=</span> <span class="token punctuation">[</span>label <span class="token keyword">for</span> label <span class="token keyword">in</span> comments_count_distribution<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+values <span class="token operator">=</span> <span class="token punctuation">[</span>value <span class="token keyword">for</span> value <span class="token keyword">in</span> comments_count_distribution<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+bar<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'评论数'</span><span class="token punctuation">,</span>labels<span class="token punctuation">,</span>values<span class="token punctuation">,</span>is_more_utils<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+bar
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2018/1/27/1613768abe72551a?w=800&h=400&f=png&s=25020" alt></p><h2 id="掘金的标题和内容"><a href="#掘金的标题和内容" aria-hidden="true" class="header-anchor">#</a> 掘金的标题和内容</h2><p>下面我们来通过分词来看一下掘金的标题和内容大致都说了些什么。首先是标题：</p><pre class="language-python"><code>all_tokens_set <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>all_tokens_list<span class="token punctuation">)</span>
+<span class="token comment"># print(all_tokens_set)</span>
+all_tokens_distribution <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> set_item <span class="token keyword">in</span> all_tokens_set<span class="token punctuation">:</span>
+    all_tokens_distribution<span class="token punctuation">[</span>set_item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token comment"># print(all_tags_distribution)</span>
+<span class="token keyword">for</span> token_item <span class="token keyword">in</span> all_tokens_list<span class="token punctuation">:</span>
+    all_tokens_distribution<span class="token punctuation">[</span>token_item<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+<span class="token comment"># print(all_tokens_distribution)</span>
+
+<span class="token keyword">from</span> pyecharts <span class="token keyword">import</span> WordCloud
+word_cloud <span class="token operator">=</span> WordCloud<span class="token punctuation">(</span><span class="token string">'掘金文章标题分布'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span>
+
+labels <span class="token operator">=</span> <span class="token punctuation">[</span>label <span class="token keyword">for</span> label <span class="token keyword">in</span> all_tokens_distribution<span class="token punctuation">.</span>keys<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+values <span class="token operator">=</span> <span class="token punctuation">[</span>value <span class="token keyword">for</span> value <span class="token keyword">in</span> all_tokens_distribution<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+word_cloud<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'次数'</span><span class="token punctuation">,</span>labels<span class="token punctuation">,</span>values<span class="token punctuation">)</span>
+word_clou
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2018/1/27/161376abfb4d5428?w=800&h=400&f=png&s=164226" alt>
+接下来是内容：</p><pre class="language-python"><code><span class="token comment"># 分析文章内容</span>
+all_content <span class="token operator">=</span> <span class="token punctuation">[</span>item<span class="token punctuation">[</span><span class="token string">'content'</span><span class="token punctuation">]</span> <span class="token keyword">for</span> item <span class="token keyword">in</span> collection<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+
+content_tokens_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token keyword">for</span> line <span class="token keyword">in</span> all_content<span class="token punctuation">:</span>
+    cuts <span class="token operator">=</span> jieba<span class="token punctuation">.</span>cut<span class="token punctuation">(</span>line<span class="token punctuation">,</span>cut_all<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> cut <span class="token keyword">in</span> cuts<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> cut <span class="token operator">not</span> <span class="token keyword">in</span> add_punc<span class="token punctuation">:</span>
+            content_tokens_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cut<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>content_tokens_list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 输出 4806605</span>
+content_tokens_set <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>content_tokens_list<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>content_tokens_set<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 输出 80081</span>
+content_tokens_distribution <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">for</span> set_item <span class="token keyword">in</span> content_tokens_set<span class="token punctuation">:</span>
+    content_tokens_distribution<span class="token punctuation">[</span>set_item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token comment"># print(all_tags_distribution)</span>
+<span class="token keyword">for</span> token_item <span class="token keyword">in</span> content_tokens_list<span class="token punctuation">:</span>
+    content_tokens_distribution<span class="token punctuation">[</span>token_item<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+
+new_content_tokens_distribution <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>content_tokens_distribution<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>key<span class="token operator">=</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span>x<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># print(content_tokens_distribution.items())</span>
+word_cloud_data <span class="token operator">=</span> new_content_tokens_distribution<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">800</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">150</span><span class="token punctuation">]</span>
+
+word_cloud <span class="token operator">=</span> WordCloud<span class="token punctuation">(</span><span class="token string">'掘金文章内容分布'</span><span class="token punctuation">,</span><span class="token string">''</span><span class="token punctuation">)</span>
+
+labels <span class="token operator">=</span> <span class="token punctuation">[</span>label<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">for</span> label <span class="token keyword">in</span> word_cloud_data<span class="token punctuation">]</span>
+values <span class="token operator">=</span> <span class="token punctuation">[</span>value<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> value <span class="token keyword">in</span> word_cloud_data<span class="token punctuation">]</span>
+
+word_cloud<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token string">'次数'</span><span class="token punctuation">,</span>labels<span class="token punctuation">,</span>values<span class="token punctuation">)</span>
+word_cloud
+</code></pre><p><img src="https://user-gold-cdn.xitu.io/2018/1/27/161376c95a0425b9?w=800&h=400&f=png&s=113627" alt>
+这里由于掘金的内容词太多了，而且前面很大一部分都是停用词，几乎没有意义，所以截取了一部分展示，其实效果也不好。最后因为爬取的数据有限，所以所有结果仅供参看，并无任何实际意义。项目的源代码在这里<a href="https://github.com/PedroGao/juejin_spider" target="_blank" rel="noopener noreferrer">juejin_spider</a>.</p></div><div class="content edit-link"><a href="https://coding.net/u/pedrogao/p/cookbook-doc/git?public=true/edit/master/docs/blog/Search-3.md" target="_blank" rel="noopener noreferrer">Edit this page</a><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div><div class="content page-nav"><p class="inner"><span class="prev">
+        ← <a href="/blog/Search-2.html" class="prev">
+          自制信息检索网站（三）——Go 语言标准库实现后端
+        </a></span><span class="next"><a href="/blog/Spring-1.html">
+          SpringBoot 学习（一）起手式与 RestController
+        </a> →
+      </span></p></div></div></div></div>
+    <script src="/assets/js/8.4936efcb.js" defer></script><script src="/assets/js/app.2c76701a.js" defer></script>
+  </body>
+</html>

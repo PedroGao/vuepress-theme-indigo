@@ -15,10 +15,17 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/algoliasearch": "^3.24.10"
+    "@types/algoliasearch": "^3.24.10",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free-webfonts": "^1.0.8",
     "algoliasearch": "^3.27.0",
-    "vuepress": "^0.8.3"
+    "dayjs": "^1.5.24",
+    "element-ui": "^2.3.6",
+    "mermaid": "^8.0.0-rc.8",
+    "vuepress": "^0.8.4",
+    "vuepress-theme-yubisaki": "^1.1.5",
+    "vuetify": "^1.0.17"
   }
 }

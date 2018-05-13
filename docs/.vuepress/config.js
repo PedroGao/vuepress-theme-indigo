@@ -7,7 +7,7 @@ const isProd = process.env.NODE_ENV === 'production'
 module.exports = {
   base: '/',
   dest: 'dist',
-  title: "Pedro's Blog",
+  title: "PBlog",
   description: '能传达到吗？一定能传达到吧。',
   head: [
     ['link', {
@@ -49,7 +49,7 @@ module.exports = {
   locales: {
     '/': {
       lang: 'zh-CN',
-      title: "Pedro's Blog",
+      title: "PBlog",
       description: '能传达到吗？一定能传达到吧。'
     }
   },
@@ -82,6 +82,7 @@ module.exports = {
     email: 'pedro1996@gmail.com',
     since: 2018,
     avatar: '/avatar.jpg',
+    github: 'PedroGao',
     avatarLink: '/',
     menus: [
       // icons by https://fontawesome.com/icons
@@ -103,8 +104,8 @@ module.exports = {
       {
         text: 'Github',
         icon: 'fab fa-github',
-        url: 'https://github.com/pedrogao',
-        external: true
+        url: '/github',
+        // external: true
       },
       {
         text: '关于',

@@ -21,11 +21,11 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "1989a5054139dfdb09e5a77bccbfcbe7"
+    "revision": "8dc3769b9f4c393eaee9579f0c21c4d3"
   },
   {
     "url": "about/index.html",
-    "revision": "e9cdd98a7b17b5e51df02fdb58fbf162"
+    "revision": "7c40f83bc1ca26071af9e3bba545f08d"
   },
   {
     "url": "assets/css/9.styles.997f1f62.css",
@@ -192,16 +192,16 @@ self.__precacheManifest = [
     "revision": "9a6263d040fc7cf8dff232fe75c3400a"
   },
   {
-    "url": "assets/js/7.cecd1bf8.js",
-    "revision": "57f1595950282fbaa90e88d9839819ad"
+    "url": "assets/js/7.db1b29b8.js",
+    "revision": "e530cf9b5dae07a0aefede7758fde5f5"
   },
   {
     "url": "assets/js/8.656c3059.js",
     "revision": "a67d45088d346013c3dd4ccfaf7ad996"
   },
   {
-    "url": "assets/js/app.710e3657.js",
-    "revision": "25a94ed9d127371a0f9d280947be6f2f"
+    "url": "assets/js/app.5e10d023.js",
+    "revision": "502e731a43947ecf1658f955bd8553ae"
   },
   {
     "url": "avatar.jpg",
@@ -209,7 +209,7 @@ self.__precacheManifest = [
   },
   {
     "url": "essay/index.html",
-    "revision": "d4f997cc3a173ae998e16f104c7a53e5"
+    "revision": "0b17aa54f678d7bdc9c31ea5ff3f5a7b"
   },
   {
     "url": "face.jpg",
@@ -217,7 +217,7 @@ self.__precacheManifest = [
   },
   {
     "url": "github/index.html",
-    "revision": "0849094f2d0a944c1e4d2c2bb313b1c0"
+    "revision": "7871e63137d841258d8639d62b897147"
   },
   {
     "url": "icons/192.png",
@@ -233,27 +233,27 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "a501ab44a7700c2f163292e7a8b251e4"
+    "revision": "ca6d051ac27f60e22a218e91ee9ee94d"
   },
   {
     "url": "posts/golang-learn-standard.html",
-    "revision": "7f13784fc75f3362714532cf03100d4d"
+    "revision": "4a9658473575656c4af15f8737250388"
   },
   {
     "url": "posts/golang-learn-web1.html",
-    "revision": "7347844bcea504dd331d2f31d87ed483"
+    "revision": "060a886fec0798fbbd0b25afdcf982fb"
   },
   {
     "url": "posts/golang-learn-web2.html",
-    "revision": "7c794a74a7022bcdc1b2e6ed3939135b"
+    "revision": "ea1ab61811604fedec92c147852b750f"
   },
   {
     "url": "posts/test-markdown.html",
-    "revision": "4b5da46e2ce5c70d0c02441b5c0f03c7"
+    "revision": "662635d3e511bd9c821c93d9a5a75778"
   },
   {
     "url": "tags/index.html",
-    "revision": "ff90d90f7571f7e556ef34154b808b86"
+    "revision": "d2926f7a16c4f3e184329c75bffb5e54"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();

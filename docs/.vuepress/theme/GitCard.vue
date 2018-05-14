@@ -1,7 +1,7 @@
 <template>
-  <v-layout>
+  <v-layout row wrap>
     <v-flex xs12 sm6 mt-4 offset-sm3>
-      <v-card v-if="profile">
+      <v-card v-cloak v-if="profile">
         <v-card-media :src="profile.avatar_url" height="200px">
         </v-card-media>
         <v-card-title primary-title>
@@ -17,6 +17,9 @@
           <v-btn flat color="orange" target="_blank" href="https://github.com/PedroGao">跳转</v-btn>
         </v-card-actions>
       </v-card>
+    </v-flex>
+    <v-flex xs12 sm6 mt-4 offset-sm1>
+      <Content></Content>
     </v-flex>
   </v-layout>
 </template>

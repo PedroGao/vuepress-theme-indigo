@@ -21,15 +21,19 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "8dc3769b9f4c393eaee9579f0c21c4d3"
+    "revision": "9a35985be5fe32faaef859cca65599b3"
   },
   {
     "url": "about/index.html",
-    "revision": "7c40f83bc1ca26071af9e3bba545f08d"
+    "revision": "efb42297aae990a946668ce987f3129f"
   },
   {
-    "url": "assets/css/9.styles.997f1f62.css",
-    "revision": "78fd4a3232c367daf49f529809c24a3c"
+    "url": "april.jpg",
+    "revision": "e1ce57c893d298ef0b4c7c549b9a7064"
+  },
+  {
+    "url": "assets/css/9.styles.7664685f.css",
+    "revision": "b0a93033b4964f116e4f31ad9e60964c"
   },
   {
     "url": "assets/fonts/fa-brands-400.0f2cf53d.ttf",
@@ -80,68 +84,8 @@ self.__precacheManifest = [
     "revision": "b971151ae89832d63c4742c06b4578ce"
   },
   {
-    "url": "assets/fonts/Roboto-Bold.39b2c303.woff2",
-    "revision": "39b2c3031be6b4ea96e2e3e95d307814"
-  },
-  {
-    "url": "assets/fonts/Roboto-Bold.dc81817d.woff",
-    "revision": "dc81817def276b4f21395f7ea5e88dcd"
-  },
-  {
-    "url": "assets/fonts/Roboto-Bold.e31fcf18.ttf",
-    "revision": "e31fcf1885e371e19f5786c2bdfeae1b"
-  },
-  {
-    "url": "assets/fonts/Roboto-Light.3b813c2a.woff",
-    "revision": "3b813c2ae0d04909a33a18d792912ee7"
-  },
-  {
-    "url": "assets/fonts/Roboto-Light.46e48ce0.ttf",
-    "revision": "46e48ce0628835f68a7369d0254e4283"
-  },
-  {
-    "url": "assets/fonts/Roboto-Light.69f8a061.woff2",
-    "revision": "69f8a0617ac472f78e45841323a3df9e"
-  },
-  {
-    "url": "assets/fonts/Roboto-Medium.574fd0b5.woff2",
-    "revision": "574fd0b50367f886d359e8264938fc37"
-  },
-  {
-    "url": "assets/fonts/Roboto-Medium.894a2ede.ttf",
-    "revision": "894a2ede85a483bf9bedefd4db45cdb9"
-  },
-  {
-    "url": "assets/fonts/Roboto-Medium.fc78759e.woff",
-    "revision": "fc78759e93a6cac50458610e3d9d63a0"
-  },
-  {
-    "url": "assets/fonts/Roboto-Regular.2751ee43.woff2",
-    "revision": "2751ee43015f9884c3642f103b7f70c9"
-  },
-  {
-    "url": "assets/fonts/Roboto-Regular.ba3dcd89.woff",
-    "revision": "ba3dcd8903e3d0af5de7792777f8ae0d"
-  },
-  {
-    "url": "assets/fonts/Roboto-Regular.df7b648c.ttf",
-    "revision": "df7b648ce5356ea1ebce435b3459fd60"
-  },
-  {
-    "url": "assets/fonts/Roboto-Thin.7500519d.woff",
-    "revision": "7500519de3d82e33d1587f8042e2afcb"
-  },
-  {
-    "url": "assets/fonts/Roboto-Thin.94998475.ttf",
-    "revision": "94998475f6aea65f558494802416c1cf"
-  },
-  {
-    "url": "assets/fonts/Roboto-Thin.954bbdeb.woff2",
-    "revision": "954bbdeb86483e4ffea00c4591530ece"
-  },
-  {
-    "url": "assets/img/brand.734f817b.jpg",
-    "revision": "734f817bbb181d0180d7b37749769cc0"
+    "url": "assets/img/bg.8195b121.jpg",
+    "revision": "8195b12102f375f4f07442d983f63ce9"
   },
   {
     "url": "assets/img/fa-brands-400.8e04d338.svg",
@@ -200,7 +144,7 @@ self.__precacheManifest = [
     "revision": "a67d45088d346013c3dd4ccfaf7ad996"
   },
   {
-    "url": "assets/js/app.5e10d023.js",
+    "url": "assets/js/app.d8231b40.js",
     "revision": "502e731a43947ecf1658f955bd8553ae"
   },
   {
@@ -209,7 +153,7 @@ self.__precacheManifest = [
   },
   {
     "url": "essay/index.html",
-    "revision": "0b17aa54f678d7bdc9c31ea5ff3f5a7b"
+    "revision": "0d1f9d5b8fb0e2ad521c796afe15164d"
   },
   {
     "url": "face.jpg",
@@ -217,7 +161,7 @@ self.__precacheManifest = [
   },
   {
     "url": "github/index.html",
-    "revision": "7871e63137d841258d8639d62b897147"
+    "revision": "cdd8c03f64df5ed2adf365798abac35d"
   },
   {
     "url": "icons/192.png",
@@ -233,27 +177,27 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "ca6d051ac27f60e22a218e91ee9ee94d"
+    "revision": "e8be3df661455028ab72c44f2d8840cc"
   },
   {
     "url": "posts/golang-learn-standard.html",
-    "revision": "4a9658473575656c4af15f8737250388"
+    "revision": "8736dd00e10962f6e9d756ade68e2b63"
   },
   {
     "url": "posts/golang-learn-web1.html",
-    "revision": "060a886fec0798fbbd0b25afdcf982fb"
+    "revision": "d6291fb53e61b39c404eac2765d21c2b"
   },
   {
     "url": "posts/golang-learn-web2.html",
-    "revision": "ea1ab61811604fedec92c147852b750f"
+    "revision": "58912a8e525132905917f3aca7305c96"
   },
   {
     "url": "posts/test-markdown.html",
-    "revision": "662635d3e511bd9c821c93d9a5a75778"
+    "revision": "5a9441d47048f65ad58410601c2ec31f"
   },
   {
     "url": "tags/index.html",
-    "revision": "d2926f7a16c4f3e184329c75bffb5e54"
+    "revision": "9be43c852ecbd3b8bed90d9d590d4ae6"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();

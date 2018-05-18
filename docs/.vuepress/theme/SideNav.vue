@@ -57,7 +57,7 @@ export default {
   }
 
   &-brand-wrap {
-    background-image: url('./imgs/brand.jpg');
+    background-image: url('./imgs/bg.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }

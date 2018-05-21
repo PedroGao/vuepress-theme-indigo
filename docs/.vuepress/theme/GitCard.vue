@@ -1,35 +1,43 @@
 <template>
   <v-layout row wrap>
     <v-flex xs12 sm6 mt-4 offset-sm3>
-      <v-card v-cloak v-if="profile">
+      <v-card v-if="profile">
         <v-card-media :src="profile.avatar_url" height="200px">
+          <v-container fill-height fluid>
+            <v-layout fill-height>
+              <v-flex xs12 align-end flexbox>
+                <span class="headline white--text">{{ profile.bio }}</span>
+              </v-flex>
+            </v-layout>
+          </v-container>
         </v-card-media>
-        <v-card-title primary-title>
-          <h3 class="headline mb-0">{{ profile.name }}</h3>
-        </v-card-title>
         <v-card-text>
-          <div>
-            <v-chip color="primary" text-color="white">地址：</v-chip>
+          <span class="body-1 mr-4">
+            <i class="fa fa-user-circle" aria-hidden="true"></i>
+            {{ profile.name }}
+          </span>
+          <span class="body-1 mr-4">
+            <i class="fa fa-location-arrow" aria-hidden="true"></i>
             {{ profile.location }}
-            <v-chip color="primary" text-color="white">签名：</v-chip>
-            {{ profile.bio }}
-          </div>
+          </span>
         </v-card-text>
         <v-card-actions>
-          <v-badge color="blue" right>
-            <span slot="badge">{{ profile.public_repos }}</span>
-            <span>public_repos</span>
-          </v-badge>
-          &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-          <v-badge color="blue" right>
-            <span slot="badge">{{ profile.followers }}</span>
-            <span>followers</span>
-          </v-badge>
-          <v-spacer />
-          <v-btn flat color="orange">点赞</v-btn>
-          <v-btn flat color="orange" target="_blank" href="https://github.com/PedroGao">跳转</v-btn>
+          <v-chip>
+            <i class="fa fa-users" aria-hidden="true">
+              {{ profile.followers }}
+            </i>
+          </v-chip>
+          <v-chip>
+            <i class="fa fa-list" aria-hidden="true">
+              {{ profile.public_repos }}
+            </i>
+          </v-chip>
+          <v-spacer></v-spacer>
+          <v-btn flat color="primary">点赞</v-btn>
+          <v-btn flat color="primary">跳转</v-btn>
         </v-card-actions>
       </v-card>
+
       <content-placeholders v-else :rounded="true">
         <content-placeholders-img />
         <content-placeholders-text :lines="3" />

@@ -21,11 +21,11 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "2383796f54c76e3a3f008190a57a4874"
+    "revision": "446f6c149372575792bfb987a7762b8d"
   },
   {
     "url": "about/index.html",
-    "revision": "c3e385b0d062e0a9e1b77366414593df"
+    "revision": "ca0fda9ae6dbd5ecc0d6057504eaeb54"
   },
   {
     "url": "april.jpg",
@@ -208,8 +208,8 @@ self.__precacheManifest = [
     "revision": "2176d97f233e9e0f05791755488c0e47"
   },
   {
-    "url": "assets/js/app.5deda489.js",
-    "revision": "873ad13042d897f497df81b6b4ff874a"
+    "url": "assets/js/app.93d885fd.js",
+    "revision": "86ac98c1fc89d39321a65659a37329fc"
   },
   {
     "url": "avatar.jpg",
@@ -217,7 +217,7 @@ self.__precacheManifest = [
   },
   {
     "url": "essay/index.html",
-    "revision": "c093883d4146347976036a5b86b6f588"
+    "revision": "2e12377004e87895d23ac93566d0ff1d"
   },
   {
     "url": "face.jpg",
@@ -225,7 +225,7 @@ self.__precacheManifest = [
   },
   {
     "url": "github/index.html",
-    "revision": "226bb5bdebcf99f4b8067591ee17b807"
+    "revision": "7dc02ec00157752a7880c7eeb0ec914b"
   },
   {
     "url": "icons/192.png",
@@ -241,31 +241,31 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "685f7bf6d550f270a2e7443e25ca9668"
+    "revision": "1bff332ae759898edcaee384b4985939"
   },
   {
     "url": "posts/golang-learn-standard.html",
-    "revision": "62574e44775352a69999e637d706eed3"
+    "revision": "edda782648db9e11769b0412613fadd0"
   },
   {
     "url": "posts/golang-learn-web1.html",
-    "revision": "14c6a862294b25b33f7ecae996ed454f"
+    "revision": "13659c981bbc227c08b136ab8e3aefdd"
   },
   {
     "url": "posts/golang-learn-web2.html",
-    "revision": "7cd4e406d11266bff9c77166728507e8"
+    "revision": "d019743b172d6bc9e56e894459c8008e"
   },
   {
     "url": "posts/kotlin-coroutine1.html",
-    "revision": "4fe8388b981d82d6d2e9182048767e70"
+    "revision": "8b9751e884feb20c47451ca54470266c"
   },
   {
     "url": "posts/test-markdown.html",
-    "revision": "2b5f502c40dccd7ad2af9ce863399cea"
+    "revision": "4c8d03a69a13c358418468ad45fc5c7d"
   },
   {
     "url": "tags/index.html",
-    "revision": "e7996f6a2c28efbc7830d331d6b9ddf2"
+    "revision": "c72114f88eddedeac5edb46199cf0103"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();

@@ -21,18 +21,18 @@ importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.1.0/workbox
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "446f6c149372575792bfb987a7762b8d"
+    "revision": "4be619b71b6e6a9c47edd01c3bf40c2f"
   },
   {
     "url": "about/index.html",
-    "revision": "ca0fda9ae6dbd5ecc0d6057504eaeb54"
+    "revision": "13de0383e4602b3a78ffc7d91b1cf960"
   },
   {
     "url": "april.jpg",
     "revision": "e1ce57c893d298ef0b4c7c549b9a7064"
   },
   {
-    "url": "assets/css/10.styles.c2417b62.css",
+    "url": "assets/css/11.styles.40f198d5.css",
     "revision": "85e4a64b457e67c9d84aac8967110082"
   },
   {
@@ -168,56 +168,68 @@ self.__precacheManifest = [
     "revision": "683d46b01e3fc6c712c2036bea239951"
   },
   {
-    "url": "assets/js/0.060ca59e.js",
-    "revision": "6cce079d75ce13e742b2e51ba9a27f60"
+    "url": "assets/img/xun.e1ce57c8.jpg",
+    "revision": "e1ce57c893d298ef0b4c7c549b9a7064"
   },
   {
-    "url": "assets/js/1.1e72876c.js",
-    "revision": "302089b49cc14c298ad640ec2cc16ca9"
+    "url": "assets/js/0.9f9dc889.js",
+    "revision": "29d9f390249506d8ceb0775381332d9d"
   },
   {
-    "url": "assets/js/2.1f6a8ca2.js",
-    "revision": "c2ed03e5340f8c3cde101a4385a0aaa9"
+    "url": "assets/js/1.51653da3.js",
+    "revision": "ba8840ebd4e944d19f9b0ed25f9ce828"
   },
   {
-    "url": "assets/js/3.c2455fec.js",
-    "revision": "0bc5c627e51841d080f15349dd8ece93"
+    "url": "assets/js/10.38b4169e.js",
+    "revision": "38689bf8c009b9b3d2c5287076098a35"
   },
   {
-    "url": "assets/js/4.23453537.js",
-    "revision": "d7f8d1c30730cb666a853219a6ca0a58"
+    "url": "assets/js/2.814dc46f.js",
+    "revision": "3e4452d39cf07b568c770a540dd50c3d"
   },
   {
-    "url": "assets/js/5.13ad0bcb.js",
-    "revision": "dd316fb926b68d1f6e1ec9c79fd86327"
+    "url": "assets/js/3.2f9c8f6b.js",
+    "revision": "5d0e1536aa636704f16ebbaaf1cf14a8"
   },
   {
-    "url": "assets/js/6.3de4d206.js",
-    "revision": "6d4e942be59475dab270ddda7766f2f7"
+    "url": "assets/js/4.660c06fd.js",
+    "revision": "18fc15af1279a3afb3273bbb2b19e589"
   },
   {
-    "url": "assets/js/7.0efce696.js",
-    "revision": "480e1f3f2347b22fd5488fc3bdf138cd"
+    "url": "assets/js/5.551f125a.js",
+    "revision": "96b227276ad975066e24fd6bfae958da"
   },
   {
-    "url": "assets/js/8.da08aaf5.js",
-    "revision": "783d9b54f67507f15048de12aa226e5d"
+    "url": "assets/js/6.ea4bbae8.js",
+    "revision": "1bac4fc4cc69d1e587e034ec3507b63e"
   },
   {
-    "url": "assets/js/9.04152f6a.js",
-    "revision": "2176d97f233e9e0f05791755488c0e47"
+    "url": "assets/js/7.622713c9.js",
+    "revision": "72388dfd79ac2c171693cac6599f708b"
   },
   {
-    "url": "assets/js/app.93d885fd.js",
-    "revision": "86ac98c1fc89d39321a65659a37329fc"
+    "url": "assets/js/8.6280a3e7.js",
+    "revision": "4b201bc5acadc6c1ec2267c8534841db"
+  },
+  {
+    "url": "assets/js/9.d062ba4f.js",
+    "revision": "655144b9de8fd314ce34a7c3bbb83402"
+  },
+  {
+    "url": "assets/js/app.3cd61f2f.js",
+    "revision": "8f087865011046ca8edb522a0aa672f4"
   },
   {
     "url": "avatar.jpg",
     "revision": "937e94c4b78566c66dd2c3ac2a977ac9"
   },
   {
+    "url": "essay/articles/essay-one.html",
+    "revision": "615a23de43cc5044ad64379c8acf84b8"
+  },
+  {
     "url": "essay/index.html",
-    "revision": "2e12377004e87895d23ac93566d0ff1d"
+    "revision": "3065b667fc648a0d2b49b0933707ecae"
   },
   {
     "url": "face.jpg",
@@ -225,7 +237,7 @@ self.__precacheManifest = [
   },
   {
     "url": "github/index.html",
-    "revision": "7dc02ec00157752a7880c7eeb0ec914b"
+    "revision": "43705770eaeacbe966481f93cf532b53"
   },
   {
     "url": "icons/192.png",
@@ -241,31 +253,31 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "1bff332ae759898edcaee384b4985939"
+    "revision": "cc1990efbc620b374e3db8fb6b8750a3"
   },
   {
     "url": "posts/golang-learn-standard.html",
-    "revision": "edda782648db9e11769b0412613fadd0"
+    "revision": "b73a1c24a0213a5765ba4cce346faf23"
   },
   {
     "url": "posts/golang-learn-web1.html",
-    "revision": "13659c981bbc227c08b136ab8e3aefdd"
+    "revision": "d222ebd7a394e6842d4b2015c0f38723"
   },
   {
     "url": "posts/golang-learn-web2.html",
-    "revision": "d019743b172d6bc9e56e894459c8008e"
+    "revision": "755a1a51c4f8a6ee807ee7bcf0dd4112"
   },
   {
     "url": "posts/kotlin-coroutine1.html",
-    "revision": "8b9751e884feb20c47451ca54470266c"
+    "revision": "dd2790df2d85cf4c99a7e23423cfba47"
   },
   {
     "url": "posts/test-markdown.html",
-    "revision": "4c8d03a69a13c358418468ad45fc5c7d"
+    "revision": "601e04354782e9f9c68bd6b8ff07a8a7"
   },
   {
     "url": "tags/index.html",
-    "revision": "c72114f88eddedeac5edb46199cf0103"
+    "revision": "fc3bcba7dfcd38390ef8233d9b3c34b9"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();

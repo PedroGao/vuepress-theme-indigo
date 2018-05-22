@@ -19,6 +19,7 @@ import VSnackbar from 'vuetify/es5/components/VSnackbar'
 import VProgressLinear from 'vuetify/es5/components/VProgressLinear'
 import VBadge from 'vuetify/es5/components/VBadge'
 import VIcon from 'vuetify/es5/components/VIcon'
+import VTextField from 'vuetify/es5/components/VTextField'
 import * as directives from 'vuetify/es5/directives'
 
 const install = (Vue, theme) => {
@@ -43,7 +44,8 @@ const install = (Vue, theme) => {
       VSnackbar,
       VProgressLinear,
       VBadge,
-      VIcon
+      VIcon,
+      VTextField
     },
     directives,
     theme: theme.colors

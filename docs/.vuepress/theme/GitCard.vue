@@ -33,16 +33,19 @@
             </i>
           </v-chip>
           <v-spacer></v-spacer>
-          <v-btn flat color="primary">点赞</v-btn>
-          <v-btn flat color="primary">跳转</v-btn>
+          <v-btn flat @click="snackbar=!snackbar" color="primary">点赞</v-btn>
+          <v-btn flat :href="href" target="_blank" color="primary">跳转</v-btn>
         </v-card-actions>
       </v-card>
-
       <content-placeholders v-else :rounded="true">
         <content-placeholders-img />
         <content-placeholders-text :lines="3" />
       </content-placeholders>
     </v-flex>
+    <v-snackbar top right v-model="snackbar">
+      谢谢点赞
+      <v-btn flat color="pink" @click.native="snackbar = false">关闭</v-btn>
+    </v-snackbar>
     <v-flex xs12 sm6 mt-4 offset-sm1>
       <Content></Content>
     </v-flex>
@@ -54,7 +57,9 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      profile: null
+      snackbar: false,
+      profile: null,
+      href: 'https://github.com/PedroGao'
     };
   },
   computed: {

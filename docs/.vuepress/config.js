@@ -77,6 +77,7 @@ module.exports = {
   themeConfig: {
     lang: 'zh-CN',
     postDir: '/posts',
+    essayDir: '/articles',
     subTitle: '以诗会友，以码做人',
     author: 'pedro',
     email: 'pedro1996@gmail.com',

@@ -97,6 +97,3 @@ func Yellow(message string) string {
 
 好了，关于 fmt 中常见的几个函数今天边介绍到这里，饿死了（笑）。
 
-<post-toc>
-[[toc]]
-</post-toc>

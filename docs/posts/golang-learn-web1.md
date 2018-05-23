@@ -170,6 +170,3 @@ func main() {
 
 在 main 函数里，我们创建了自己的 server，通过端口号，Handler 及 timeout 时间来定义它，然后调用它的 ListenAndServe 方法，便可以实现与前面两个相同的 HelloWorld 功能。好了，今天写到这里，太晚了（笑）。
 
-<post-toc>
-[[toc]]
-</post-toc>

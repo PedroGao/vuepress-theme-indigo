@@ -140,6 +140,3 @@ fun main(args: Array<String>) = runBlocking<Unit> {
 
 当然 Kotlin 协程还实现了如 Go 语言一样的`CSP`模型，通过 Channel 来实现协程之间的通信，笔者会在下篇比较 Kotlin 和 Go 语言在该方面的异同点。Kotlin 协程实现了两种模式下通信方式，很大程度上既照顾了使用 callback 的方式，也拥抱了 CSP 模型。具体请参考官方的[指北](https://github.com/Kotlin/kotlinx.coroutines/blob/master/coroutines-guide.md)。
 
-<post-toc>
-[[toc]]
-</post-toc>

@@ -25,16 +25,19 @@
         <Comment></Comment>
       </v-flex>
     </v-layout>
+    <post-toc />
   </v-container>
 </template>
 <script>
 import PostCard from './components/PostCard';
 import Comment from './components/Comment';
+import PostToc from './components/PostToc';
 
 export default {
   components: {
     PostCard,
-    Comment
+    Comment,
+    PostToc
   }
 };
 </script>

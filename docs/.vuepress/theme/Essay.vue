@@ -24,8 +24,8 @@
                   <v-list-tile-content>
                     <v-list-tile-title v-text="article.title"></v-list-tile-title>
                   </v-list-tile-content>
-                  <div v-show="show" class="body-2"> {{ article.excerpt }} </div>
-                  <v-spacer />
+                  <span v-show="show" class="body-2"> {{ article.excerpt }} </span>
+                  <!-- <v-spacer /> -->
                   <v-chip v-for="tag in article.frontmatter.tags" :key="tag" small>
                     {{ tag }}
                   </v-chip>
@@ -64,7 +64,7 @@ export default {
   },
   mounted() {
     // console.log(this.$vuetify.breakpoint);
-    console.log(this.$site.pages);
+    // console.log(this.$site.pages);
   },
   components: {}
 };

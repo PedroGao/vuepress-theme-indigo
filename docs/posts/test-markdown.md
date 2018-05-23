@@ -149,3 +149,7 @@ This is a warning
 ::: danger 警告
 This is a dangerous warning
 :::
+
+<post-toc>
+[[toc]]
+</post-toc>

@@ -4,7 +4,7 @@ date: 2018-04-29 12:15:53
 tags: [golang,标准库]
 ---
 
-了解go语言的fmt标准库
+了解 go 语言的 fmt 标准库
 
 <!-- more -->
 
@@ -96,3 +96,7 @@ func Yellow(message string) string {
 如果感兴趣，读者可以自己查阅一下让自己的输出更为优（zhuang）雅（bi）。
 
 好了，关于 fmt 中常见的几个函数今天边介绍到这里，饿死了（笑）。
+
+<post-toc>
+[[toc]]
+</post-toc>

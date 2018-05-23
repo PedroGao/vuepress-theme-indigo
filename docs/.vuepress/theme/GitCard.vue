@@ -59,7 +59,8 @@ export default {
     return {
       snackbar: false,
       profile: null,
-      href: 'https://github.com/PedroGao'
+      href: 'https://github.com/PedroGao',
+      repos: []
     };
   },
   computed: {
@@ -74,13 +75,17 @@ export default {
   },
   methods: {
     getInfo() {
-      // const user = 'PedroGao';
       axios
         .get(`https://api.github.com/users/${this.content.github}`)
         .then(res => {
-          // console.log(res.data);
           this.profile = res.data;
         });
+
+      // axios
+      //   .get(`https://api.github.com/users/${this.content.github}/repos`)
+      //   .then(res => {
+      //     console.log(res.data);
+      //   });
     }
   }
 };

@@ -27,6 +27,7 @@ import Post from './Post';
 import About from './About';
 import Essay from './Essay';
 import GitCard from './GitCard';
+// import Toc from './Toc';
 import { pathToComponentName, updateMetaTags } from './libs/utils';
 
 export default {
@@ -41,6 +42,7 @@ export default {
     About,
     Essay,
     GitCard
+    // Toc
   },
   data() {
     const mobilePoint = 1264;

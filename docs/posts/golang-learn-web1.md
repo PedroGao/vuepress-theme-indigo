@@ -169,3 +169,7 @@ func main() {
 上面这段代码便是自创 server 的实现了，这里挑选几条新的代码说明一下，我们定义了一个 mux 的全局变量，它来装配我们的路由与相应函数的映射，相当于上面的 mux.Handle("/", .....)，这里比较简陋的直接用 Map 来实现，接下来我们定义了 Hello 这个响应函数，我们也重写了 ServeHTTP 这个方法，它会判断 request 的 url 路径与我们 mux 里面的路径是否匹配，如果匹配在从 mux 中取出相应的响应函数并将 w http.ResponseWriter, r \*http.Request 这两个参数传递给这个相应函数。
 
 在 main 函数里，我们创建了自己的 server，通过端口号，Handler 及 timeout 时间来定义它，然后调用它的 ListenAndServe 方法，便可以实现与前面两个相同的 HelloWorld 功能。好了，今天写到这里，太晚了（笑）。
+
+<post-toc>
+[[toc]]
+</post-toc>
